@@ -60,6 +60,8 @@ analytics:
   google:
     tracking_id: UA-144575374-1
     anonymize_ip: false
+
+url: "raeminkang.github.io"
 # Plugins (previously gems:)
 plugins:
   - jekyll-paginate
