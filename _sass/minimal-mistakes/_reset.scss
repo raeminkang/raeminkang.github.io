@@ -5,21 +5,23 @@
 * { box-sizing: border-box; }
 
 html {
+  // KMEMO html 전체 전반적인 폰트의 크기 조절
+  $substract-num: 6px;
   /* apply a natural box layout model to all elements */
   box-sizing: border-box;
   background-color: $background-color;
-  font-size: 16px;
+  font-size: 16px - $substract-num;
 
   @include breakpoint($medium) {
-    font-size: 18px;
+    font-size: 18px - $substract-num;
   }
 
   @include breakpoint($large) {
-    font-size: 20px;
+    font-size: 20px - $substract-num;
   }
 
   @include breakpoint($x-large) {
-    font-size: 22px;
+    font-size: 22px - $substract-num;
   }
 
   -webkit-text-size-adjust: 100%;
