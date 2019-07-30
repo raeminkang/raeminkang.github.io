@@ -5,6 +5,7 @@ categories:
   - Machine Learning
 tags:
   - Machine Learning
+author: homerSimpson
 ---
 
 
@@ -17,8 +18,8 @@ tags:
 예시를 통해 알아 보자. 동네 편의점의 매출이력 ( transaction )이 다음과 같다고 가정하자.
 
 
-![매출이력](/images/Lotto_Analysis/firstImage.png)
-( 출처 : https://ratsgo.github.io/machine%20learning/2017/04/08/apriori/ )
+![매출이력](/assets/images/Lotto_Analysis/firstImage.png)
+( 출처 : [https://ratsgo.github.io/machine%20learning/2017/04/08/apriori/](https://ratsgo.github.io/machine%20learning/2017/04/08/apriori/) )
 
 
 위의 표를 살펴보면, 1번 고객은 편의점에 들려 달걀, 라면, 참치캔을 구매했고 7번 고은 라면과 햇반을, 10번고객은 양파를 구매 하였다. 이 표를 통해 우리는 많은 규칙을 만들 수 있다. 1번 고객이 달걀, 라면, 참치캔을 구매 했기 때문에 달걀을 산 사람은 라면과 참치캔을 산다. 라는 규칙을 만들 수 있고, 또 9번고객은 달걀, 라면, 콜라를 샀기 때문에 라면은 산 사람은 콜라를 샀다는 규칙을 만들 수 있다.
@@ -96,7 +97,7 @@ df.trans
 
 summary(df.trans)
 ```
-![사진 1](/images/Lotto_Analysis/secondImage.png)
+![사진 1](/assets/images/Lotto_Analysis/secondImage.png)
 
 < 사진 1 >
 ```R
@@ -114,7 +115,7 @@ summary(rule)
 
 inspect(sort(rule[1:20],by='lift'))
 ```
-![사진 2](/images/Lotto_Analysis/thirdImage.png)
+![사진 2](/assets/images/Lotto_Analysis/thirdImage.png)
 < 사진 2 >
 
 

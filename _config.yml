@@ -296,7 +296,7 @@ defaults:
       read_time: true
       comments: true # true
       share: false
-      related: false
+      related: true
   # _pages
   - scope:
       path: "_pages"
@@ -304,3 +304,8 @@ defaults:
     values:
       layout: single
       author_profile: true
+
+# KMEMO teaser : related 미리보기
+# Logo : Title 옆의 로고
+teaser: /assets/images/authors/bartSimpson500x300.png
+logo: "/assets/images/authors/bartSimpson500x300.png"

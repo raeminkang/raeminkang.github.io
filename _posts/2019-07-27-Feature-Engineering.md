@@ -6,13 +6,14 @@ categories:
 tags:
   - Machine Learning
   - Kaggle Study
-
+author: homerSimpson
 toc: true
 toc_label: "목차"
+video_link: "https://raeminkang.github.io/assets/video/BigBunny/samplevideo.mp4"
 ---
 Feature Engineering
 
-(  http://hero4earth.com/blog/learning/2018/01/29/Feature_Engineering_Basic/ )
+(  [http://hero4earth.com/blog/learning/2018/01/29/Feature_Engineering_Basic/](http://hero4earth.com/blog/learning/2018/01/29/Feature_Engineering_Basic/) )
 
 ## 정의
 - 데이터에 대한 도메인 지식을 활용하여 특징을 만들어 내는 과정

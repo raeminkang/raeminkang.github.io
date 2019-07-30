@@ -5,9 +5,10 @@ categories:
   - Machine Learning
 tags:
   - Kaggle Study
+author: bartSimpson
 ---
 
-https://www.kaggle.com/chocozzz/house-price-prediction-eda/output
+[https://www.kaggle.com/chocozzz/house-price-prediction-eda/output](https://www.kaggle.com/chocozzz/house-price-prediction-eda/output)
 
 해당 커널의 문제풀이 순서
 
@@ -53,7 +54,7 @@ https://www.kaggle.com/chocozzz/house-price-prediction-eda/output
 
 	2.2 정규화
 	-> 정규화가 필요한 컬럼 ( 해당 커널에선 sqft_living, sqft_lot, sqft_above, sqft_basement )에 대한 로그 정규화 진행
-	-> log1p 진행 ( https://www.kaggle.com/kcs93023/2019-ml-month-2nd-baseline )
+	-> log1p 진행 ( [https://www.kaggle.com/kcs93023/2019-ml-month-2nd-baseline](https://www.kaggle.com/kcs93023/2019-ml-month-2nd-baseline) )
 
 	2.3 변수 수정
 	-> date에서 앞의 8자리만 필요하기 때문에 ( yyyy - mm - dd ) 8자리만 가져오도록 변경
