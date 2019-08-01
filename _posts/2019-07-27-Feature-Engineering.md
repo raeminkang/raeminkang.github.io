@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Feature Engineering"
 last_modified_at: 2019-07-27 T20:35:00-05:00
 categories:
@@ -19,6 +20,7 @@ Feature Engineering
 - 데이터에 대한 도메인 지식을 활용하여 특징을 만들어 내는 과정
 - 모델을 위한 데이터 테이블의 컬럼을 생성 / 선택 하는 작업
 - ex_ Hands-On Chapter 2 에서 했던 rooms_per_housing 컬럼 생성 하는 작업
+<!--more-->
 
 ## 방식
 - 특징 선택 ( Feature Selection )

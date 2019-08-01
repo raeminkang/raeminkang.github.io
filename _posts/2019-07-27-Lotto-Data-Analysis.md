@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Lotto Data Analysis"
 last_modified_at: 2019-07-27 T20:35:00-05:00
 categories:
@@ -13,12 +14,13 @@ author: homerSimpson
 
 
 이러한 장바구니 분석을 통해 매출을 상승 시킬 수 있는것을 알게 되었는데, 너도 나도 장바구니 분석을 통해 매출을 늘리고 싶을 것이다. 이러한 장바구니 분석을 사람이 직관적으로 경향성을 파악하는 것이 아닌 객관적인 수치( 통계 )를 활용한 방법을 설명하고자 한다.
+<!--more-->
 
 
 예시를 통해 알아 보자. 동네 편의점의 매출이력 ( transaction )이 다음과 같다고 가정하자.
 
 
-![매출이력](/assets/images/Lotto_Analysis/firstImage.png)
+![매출이력](http://localhost:4007/assets/images/Lotto_Analysis/firstImage.png)
 ( 출처 : [https://ratsgo.github.io/machine%20learning/2017/04/08/apriori/](https://ratsgo.github.io/machine%20learning/2017/04/08/apriori/) )
 
 
@@ -97,7 +99,7 @@ df.trans
 
 summary(df.trans)
 ```
-![사진 1](/assets/images/Lotto_Analysis/secondImage.png)
+![사진 1](http://localhost:4007/assets/images/Lotto_Analysis/secondImage.png)
 
 < 사진 1 >
 ```R
@@ -115,7 +117,8 @@ summary(rule)
 
 inspect(sort(rule[1:20],by='lift'))
 ```
-![사진 2](/assets/images/Lotto_Analysis/thirdImage.png)
+![사진 2](http://localhost:4007/assets/images/Lotto_Analysis/thirdImage.png)
+
 < 사진 2 >
 
 

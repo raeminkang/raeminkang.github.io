@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Post: Notice"
 categories:
 tags:
@@ -10,6 +11,7 @@ When using Kramdown `{: .notice}` can be added after a sentence to assign the `.
 
 **Changes in Service:** We just updated our [privacy policy](#) here to better service our customers. We recommend reviewing the changes.
 {: .notice}
+<!--more-->
 
 **Primary Notice:** Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. [Praesent libero](#). Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
 {: .notice--primary}
