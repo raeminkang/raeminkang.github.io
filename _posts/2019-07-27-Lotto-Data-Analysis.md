@@ -9,7 +9,7 @@ tags:
 
 image:
   feature: Lotto_Analysis/homer.jpg
-  upperImage: Lotto_Analysis/secondImage.png
+  upperImage: Lotto_Analysis/bartsimpson.jpg
 author: homerSimpson
 ---
 
