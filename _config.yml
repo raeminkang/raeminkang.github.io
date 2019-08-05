@@ -31,8 +31,8 @@ menu:
   - title: 'Categories'
     url: '/categories'
     type: 'categories'
-  # - title: 'authors'
-  #   url: '/authors'
+  - title: 'authors'
+    url: '/authors'
   # - title: 'Favorites'
   #   url: '#'
   #   submenu:
