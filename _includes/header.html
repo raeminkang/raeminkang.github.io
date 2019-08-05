@@ -1,6 +1,4 @@
-{% capture site_cats %}{% for cat in site.categories %}{{ cat | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
-{% assign cats_list = site_cats | split:',' | sort %}
-
+{% capture site_cats %}{% for cat in site.categories %}{{ cat | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}{% assign cats_list = site_cats | split:',' | sort %}
 <div class="header-menu header-menu-top">
     <ul class="header-item-container">
       <li class="header-item-title header-toggle "><a href="#menu"><h2><i class="fa fa-bars"></i></h2></a></li>
@@ -9,7 +7,7 @@
           {% if site.logo %}
             <img class="logo" src="{{site.url}}/{{ site.logo }}" alt="{{ site.title }}">
           {% endif %}
-          <a href="{{site.url}}/" class="title"> {{ site.title }}</a>
+          <a href="{{site.url}}/" class="title">{{ site.title }}</a>
         </a>
       </li>
       {% for menu in site.menu reversed %}
@@ -17,7 +15,7 @@
         {% if ((page.url contains menu.url and menu.url != '/') or (page.url == '/index.html' and menu.url == '/')) %}
           {% assign class = 'active' %}
         {% endif %}
-
+        <!-- KMEMO menu ( tags / categories 등에 대한 설정 ) -->
         {% if menu.type == 'categories' %}
           <li class="header-item {{class}}"><a href="{{site.url}}{{menu.url}}"><h3>{{ menu.title }}</h3></a>
             <ul class="header-submenu">
@@ -45,28 +43,66 @@
       {% endfor %}
       <li class="header-item"><a href="{{site.url}}/search"><h3><i class="fa fa-search"></i></h3></a></li>
     </ul>
-  </div>
-<div class="entry-header">
+</div>
+
+{% for all_authors in site.authors %}
+  {% if all_authors.name == page.name %}
+    {% assign author = all_authors %}
+  {% endif %}
+{% endfor %}
+
+<!-- KMEMO upperImage -> 위의 이미지 -->
+<!-- KMEMO author별 백그라운드 이미지 삽입 경로 수정 할 때 -->
+<div class="entry-header" {% if site.image and page.layout == 'home' %}
+                              style="background-image:url({{ site.image }});"
+                          {% elsif page.image.feature and page.layout == 'post' %}
+                              {% if page.image.feature %}
+                                style="background-image:url(/images/posts/{{ page.image.feature }});"
+                              {% else %}
+                                style="background-image:url({{ site.image }});"
+                              {% endif %}
+                          {% elsif page.layout =='author' %}
+                              {% if author.cover %}
+                                style="background-image:url(/images/authors/{{ author.name }}/cover/{{ author.cover }});"
+                              {% else %}
+                                style="background-image:url({{ site.image }});"
+                              {% endif %}
+                          {% endif %}>
   <div class="header-title">
     <div class="header-title-wrap">
-      <h1>{{ page.title }}</h1>
-      {% if page.date %}
-        <h2><span class="entry-date date published updated"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time></span></h2>
-      {% else %}
-        <h2><span class="entry-date"><time>&nbsp;</time></span></h2>
+      {% if page.layout == 'home' %}
+        <h1>{{ page.title }}</h1>
+        <h2></h2>
+        <p>{{ site.description | newline_to_br }}</p>
+        {% if page.date %}
+          <!-- page.date -->
+          <h2><span class="entry-date date published updated"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time></span></h2>
+        {% else %}
+          <!-- page.date not -->
+          <!-- <h2><span class="entry-date"><time>&nbsp;</time></span></h2> -->
+        {% endif %}
+      {% elsif page.layout == 'post' %}
+        <h1>{{ page.title }}</h1>
+        {% if page.date %}
+          <!-- page.date -->
+          <h2><span class="entry-date date published updated"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time></span></h2>
+        {% else %}
+          <!-- page.date not -->
+          <h2><span class="entry-date"><time>&nbsp;</time></span></h2>
+        {% endif %}
+        {% if site.reading_time %}
+          <p class="entry-reading-time">
+            <i class="fa fa-clock-o"></i>
+            {% assign readtime = content | strip_html | number_of_words | divided_by:site.words_per_minute %}
+            Reading time ~{% if readtime <= 1 %}1 minute{% else %}{{ readtime }} minutes{% endif %}
+          </p><!-- /.entry-reading-time -->
+        {% endif %}
       {% endif %}
 
-      {% if site.reading_time and page.layout == 'post' %}
-        <p class="entry-reading-time">
-          <i class="fa fa-clock-o"></i>
-          {% assign readtime = content | strip_html | number_of_words | divided_by:site.words_per_minute %}
-          Reading time ~{% if readtime <= 1 %}1 minute{% else %}{{ readtime }} minutes{% endif %}
-        </p><!-- /.entry-reading-time -->
-      {% else %}
-          <p class="entry-reading-time">
-            &nbsp;
-          </p><!-- /.entry-reading-time -->
-      {% endif %}
+      <!-- <p class="entry-reading-time">
+        &nbsp;
+      </p><!-- /.entry-reading-time -->
+
     </div><!-- /.header-title-wrap -->
   </div><!-- /.header-title -->
 </div><!-- /.entry-header -->

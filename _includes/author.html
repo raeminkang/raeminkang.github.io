@@ -1,12 +1,17 @@
+{% for all_authors in site.authors %}
+  {% if all_authors.name == page.author %}
+    {% assign author = all_authors %}
+  {% endif %}
+{% endfor %}
 <div class="read-more">
   <div class="read-more-header">
-    <a href="{{ site.owner.site }}" class="read-more-btn">About the Author</a>
+    <a href="{{ site.url }}/authors/{{ author.name }}" class="read-more-btn">About the Author</a>
   </div><!-- /.read-more-header -->
   <div class="read-more-content author-info">
-    <h3>{{site.owner.name}}</h3>
+    <h3>{{author.name}}</h3>
     <div class="author-container">
-      <img class="author-img" src="{{site.url}}/{{site.owner.avatar}}" alt="{{site.owner.name}}" />
-      <div class="author-bio">{{site.owner.bio}}</div>
+      <img class="author-img" src="{{site.url}}/images/authors/{{author.name}}/profile/{{author.profileImage}}" alt="{{author.name}}" />
+      <div class="author-bio">{{author.bio}}</div>
     </div>
     <div class="author-share">
       <ul class="list-inline social-buttons">
@@ -14,12 +19,12 @@
           <li><a href="{{ network.url }}" target="_blank"><i class="fa fa-{{ network.title }} fa-fw"></i></a></li>
         {% endfor %}
       </ul>
-      {% if site.owner.github %}
-        <a aria-label="Follow @{{site.owner.github}} on GitHub" data-style="mega" href="https://github.com/{{site.owner.github}}" class="github-button">Follow @{{site.owner.github}}</a>
+      {% if author.github %}
+        <a aria-label="Follow @{{author.github}} on GitHub" data-style="mega" href="https://github.com/{{author.github}}" class="github-button">Follow @{{author.github}}</a>
       {% endif %}
       <br>
-      {% if site.owner.twitter %}
-        <a href="https://twitter.com/{{site.owner.twitter}}" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @{{site.owner.twitter}}</a>
+      {% if author.twitter %}
+        <a href="https://twitter.com/{{author.twitter}}" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @{{author.twitter}}</a>
       {% endif %}
     </div>
   </div>

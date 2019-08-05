@@ -6,6 +6,10 @@ categories:
   - Machine Learning
 tags:
   - Machine Learning
+
+image:
+  feature: Lotto_Analysis/homer.jpg
+  upperImage: Lotto_Analysis/secondImage.png
 author: homerSimpson
 ---
 
@@ -20,7 +24,7 @@ author: homerSimpson
 예시를 통해 알아 보자. 동네 편의점의 매출이력 ( transaction )이 다음과 같다고 가정하자.
 
 
-![매출이력](http://raeminkang.github.io/assets/images/Lotto_Analysis/firstImage.png)
+![매출이력](/images/posts/Lotto_Analysis/firstImage.png)
 ( 출처 : [https://ratsgo.github.io/machine%20learning/2017/04/08/apriori/](https://ratsgo.github.io/machine%20learning/2017/04/08/apriori/) )
 
 
@@ -99,7 +103,7 @@ df.trans
 
 summary(df.trans)
 ```
-![사진 1](http://raeminkang.github.io/assets/images/Lotto_Analysis/secondImage.png)
+![사진 1](/images/posts/Lotto_Analysis/secondImage.png)
 
 < 사진 1 >
 ```R
@@ -117,7 +121,7 @@ summary(rule)
 
 inspect(sort(rule[1:20],by='lift'))
 ```
-![사진 2](http://raeminkang.github.io/assets/images/Lotto_Analysis/thirdImage.png)
+![사진 2](/images/posts/Lotto_Analysis/thirdImage.png)
 
 < 사진 2 >
 

@@ -40,10 +40,19 @@ $warning			     : #dd8338;
 $danger				     : #C64537;
 $info				     : #308cbc;
 
+$margin-header-adImage: 40px;
+$height_adImage_small: 80px;
+$height_adImage_large: 130px;
+
+$main_max_width: 800px;
 
 // Screen Size
 // --------------------------------------------------
 
-$small               : "only screen and (min-width: 30em)";
-$medium              : "only screen and (min-width: 48em)";
-$large               : "only screen and (min-width: 62.5em)";
+// KMEMO min-width가 x px 일 때 보여라 ( 보통 랩탑이 1000px 넘으니 large에 속함 )
+$small               : "only screen and (min-width: 480px)";
+$medium              : "only screen and (min-width: 768px)";
+$large               : "only screen and (min-width: 1000px)";
+
+$response_border_min : "only screen and (min-width: 768px)";
+$response_border_max : "only screen and (max-width: 768px)";

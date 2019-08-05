@@ -1,5 +1,5 @@
 title:            Quriously
-description:      Describe your website here.
+description:      끝없는 호기심.
 
 # put your disqus here
 disqus_shortname:
@@ -10,14 +10,15 @@ excerpt_separator: <!--more-->
 # Your site's domain goes here (eg: //mmistakes.github.io, http://mademistakes.com, etc)
 # When testing locally leave blank or use http://localhost:4000
 
-url: "https://raeminkang.github.io"
-# url: https://localhost:4007
-
+# url: "https://raeminkang.github.io"
+url: https://localhost:4001
+adImage: adImage.jpg
 # draw your top menu here
 # each item must have a title and a url.
 #   To list post categories. use type: 'categories'
 #   To create sub categories. add a submenu item
 # See the example
+image: /images/background.jpg
 menu:
   - title: 'Home'
     url: '/'
@@ -30,6 +31,8 @@ menu:
   - title: 'Categories'
     url: '/categories'
     type: 'categories'
+  # - title: 'authors'
+  #   url: '/authors'
   # - title: 'Favorites'
   #   url: '#'
   #   submenu:
@@ -39,6 +42,7 @@ menu:
   #       url: '/intro/sample-post/'
 
 # Owner/author information
+
 owner:
   name:           Your name
   site:           http://aronbordin.com
@@ -62,6 +66,13 @@ social:
     url: "https://br.linkedin.com/in/aronbordin"
   - title: "youtube"
     url: "https://www.youtube.com/channel/UCfnSek-9HPWOx5e2pH7VFgg"
+
+defaults:
+  - scope:
+      path: ''
+      type: authors
+    values:
+      layout: author
 
 # Background image to be tiled on all pages
 background:
@@ -106,4 +117,9 @@ exclude: ["demo/*", "lib", "config.rb", "Capfile", "config", "Gemfile", "Gemfile
 gems: [jekyll-paginate]
 theme: neo-hpstr-jekyll-theme
 
-# port: 4007
+port: 4001
+
+collections:
+  authors:
+    output: true
+    permalink: /authors/:path/

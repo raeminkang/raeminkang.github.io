@@ -352,7 +352,7 @@ ul.social-buttons li a:active {
 			margin-right: 20px;
 		}
 		@media #{$large} {
-			max-width: 800px;
+			max-width: $main_max_width;
 			margin-top: 50px;
 			margin-left: auto;
 			margin-right: auto;
@@ -373,6 +373,25 @@ ul.social-buttons li a:active {
 		}
 	}
 }
+
+.adImage{
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	@media #{$response_border_max}{
+		min-height: $height_adImage_small;
+	}
+	@media #{$response_border_min}{
+		// KMEMO Max length를 main과 같이 줌
+		margin-left: auto;
+		margin-right: auto;
+		max-width: $main_max_width;
+		min-height: $height_adImage_large;
+	}
+	display: block;
+	margin-top: $margin-header-adImage;
+	margin-bottom: $margin-header-adImage;
+}
+
 .entry-image-index {
 	margin-top: -25px;
 	margin-left: -15px;
@@ -463,14 +482,26 @@ ul.social-buttons li a:active {
 // Header
 // --------------------------------------------------
 .entry-header {
+	// margin-top: $menu-height;//KMEMO
 	width: 100%;
 	overflow: hidden;
 	position: relative;
-	width: 100%;
 	height: 100%;
 	overflow: hidden;
-	height: 50px;
-	@media #{$medium} {
+	// KMEMO 반복 없애기
+	background: no-repeat center;
+	background-size: cover;
+	// height: 50px;
+	// @media #{$small} {
+	// 	background-color: $header-color;
+	// 	min-height: 170px;
+	// }
+	// 768px 이하는 170px / 아니면 300px ( 최소 )
+	@media #{$response_border_max} {
+		background-color: $header-color;
+		min-height: 170px;
+	}
+	@media #{$response_border_min} {
 		background-color: $header-color;
 		min-height: 300px;
 	}
@@ -482,6 +513,12 @@ ul.social-buttons li a:active {
 	}
 }
 .header-title {
+	@media #{$response_border_max} {
+		min-height: 170px;
+	}
+	@media #{$response_border_min} {
+		min-height: 300px;
+	}
 	text-align: center;
 	position: absolute;
 	bottom: 0;
@@ -526,7 +563,9 @@ ul.social-buttons li a:active {
 	}
 }
 .header-menu {
-	position: fixed;
+	display: block;
+	// sticky !!!!
+	position: sticky;
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -544,7 +583,8 @@ ul.social-buttons li a:active {
 }
 .header-menu-top{
 	background-color: $menu-top;
-	box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.4);
+	// KMEMO box-shadow
+	// box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.4);
 }
 
 .header-menu-overflow{

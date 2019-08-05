@@ -12,6 +12,14 @@
 {% include browser-upgrade.html %}
 {% include header.html %}
 
+{% if page.layout != 'author'%}
+  <div class="adImage" style="background-image:url(/images/{{ site.adImage }});">
+    <!-- <img src="{{ site.url }}/images/{{ site.adImage }}" alt=""> -->
+  </div>
+{% else %}
+  {% include author.html %}
+{% endif %}
+
 <div id="main" role="main">
   {{ content }}
 </div><!-- /#main -->
