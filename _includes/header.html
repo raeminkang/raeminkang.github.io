@@ -41,8 +41,23 @@
             {% endif %}
         {% endif %}
       {% endfor %}
-      <li class="header-item"><a href="{{site.url}}/search"><h3><i class="fa fa-search"></i></h3></a></li>
+      <li class="header-item" id="searchBtn" >
+        <a>
+          <h3>
+            <input class="searchInputBox" type="text" hint="Search..." id="search-input"/>
+            <i class="fa fa-search"></i>
+          </h3>
+        </a>
+      </li>
     </ul>
+
+    <div tabindex="0" class="searchBox" id="search-box" style="display: none;">
+      <article>
+        <h3>Results:</h3>
+        <ul id="results-container" class="resultsContainer" style="color: black;">
+        </ul>
+      </article><!-- /.hentry -->
+    </div>
 </div>
 
 {% for all_authors in site.authors %}
@@ -138,3 +153,37 @@
 {% if site.owner.twitter %}
   <a href="https://twitter.com/{{site.owner.twitter}}" class="btn btn-info button-twitter" data-show-count="false" data-size="large"><i class="fa fa-twitter"></i> <span> | Follow @{{site.owner.twitter}}</span></a>
 {% endif %}
+
+
+<script type="text/javascript">
+
+  window.onload = function(){
+    new SimpleJekyllSearch({
+      searchInput: document.getElementById('search-input'),
+      resultsContainer: document.getElementById('results-container'),
+      json: '{{site.url}}/search.json',
+      searchResultTemplate: '<li class="entry-title"><a class="searchResult" style="color:black;" href="{url}" title="{title}">{title}</a></li>'
+    });
+  }
+
+  // $('#searchBtn').click(function (e) {
+  //     e.stopPropagation();
+  //     e.preventDefault();
+  //     e.log('click')
+  //     if ($('#search-box').is(':visible')) {
+  //         $('#search-box').hide();
+  //     } else {
+  //         $('#search-box').hide();
+  //         $('#search-box').show();
+  //     }
+  // });
+  // $(function () {
+  //     // by default, blog menu is active unless page
+  //
+  // });
+  // (function (window, document, $) {
+  //     'use strict';
+  //
+  //
+  // }(window, window.document, window.jQuery));
+</script>

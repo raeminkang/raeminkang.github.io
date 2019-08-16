@@ -8,8 +8,8 @@ tags:
   - Machine Learning
 
 image:
-  feature: Lotto_Analysis/homer.jpg
-  upperImage: Lotto_Analysis/bartsimpson.jpg
+  feature: Lotto-Data-Analysis/homer.jpg
+  upperImage: Lotto-Data-Analysis/bartsimpson.jpg
 author: homerSimpson
 ---
 

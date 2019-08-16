@@ -61,6 +61,19 @@ $(document).ready(function(e) {
   });
 });
 
+$(document).ready(function(){
+  var inputbox = $('.searchInputBox');
+  var searchbox = $('.searchBox');
+  inputbox.focus(function(){
+    console.log('a');
+    searchBox.show();
+  });
+  inputbox.blur(function(){
+    console.log('b');
+    searchBox.hide();
+  });
+});
+
 //mobile menu
 $(document).ready(function(){
   $("#menu").attr('style', '');
