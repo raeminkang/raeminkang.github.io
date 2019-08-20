@@ -1,8 +1,10 @@
 ---
 layout: post
 title: youtube video
-tags: youtube video
+tags: [youtube,video]
 categories: video
+author: IceBear
+
 image:
   upperImage: youtube-sample/thirdImage.png
   feature: youtube-sample/homer.jpg

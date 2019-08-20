@@ -3,7 +3,7 @@ description:      끝없는 호기심.
 
 # put your disqus here
 disqus_shortname:
-reading_time:     true # if true, shows the estimated reading time for a post
+reading_time:     false # if true, shows the estimated reading time for a post
 words_per_minute: 200
 logo:             images/favicon/android-chrome-192x192.png # logo visible in the topbar
 excerpt_separator: <!--more-->
@@ -12,7 +12,8 @@ excerpt_separator: <!--more-->
 
 url: https://raeminkang.github.io
 # url: https://localhost:4001
-adImage: adImage.jpg
+adImage: adImage.png
+adUrl: https://www.wanted.co.kr/search?query=%ED%81%90%EB%A6%AC%EC%96%B4%EC%8A%AC%EB%A6%AC
 # draw your top menu here
 # each item must have a title and a url.
 #   To list post categories. use type: 'categories'
@@ -20,19 +21,19 @@ adImage: adImage.jpg
 # See the example
 image: /images/background.jpg
 menu:
-  - title: 'Home'
-    url: '/'
+  # - title: 'Home'
+  #   url: '/'
   # - title: 'Fork'
     # url: 'http://github.com/aron-bordin/neo-hpstr-jekyll-theme'
   # - title: 'Install'
     # url: 'http://github.com/aron-bordin/neo-hpstr-jekyll-theme#installation'
-  - title: 'Tags'
-    url: '/tags'
+  # - title: 'Tags'
+  #   url: '/tags'
   - title: 'Categories'
     url: '/categories'
     type: 'categories'
-  - title: 'authors'
-    url: '/authors'
+  # - title: 'authors'
+  #   url: '/authors'
   # - title: 'Favorites'
   #   url: '#'
   #   submenu:
@@ -67,12 +68,25 @@ social:
   - title: "youtube"
     url: "https://www.youtube.com/channel/UCfnSek-9HPWOx5e2pH7VFgg"
 
+collections:
+  authors:
+    output: true
+    permalink: /authors/:path/
+  tags:
+    output: true
+    permalink: /tags/:path/
+
 defaults:
   - scope:
       path: ''
       type: authors
     values:
       layout: author
+  - scope:
+      path: ''
+      type: tags
+    values:
+      layout: tag
 
 # Background image to be tiled on all pages
 background:
@@ -114,12 +128,7 @@ titlecase: true
 
 include: [".htaccess"]
 exclude: ["demo/*", "lib", "config.rb", "Capfile", "config", "Gemfile", "Gemfile.lock", "README.md", "LICENSE", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules"]
-gems: [jekyll-paginate]
+plugins: [jekyll-paginate]
 theme: neo-hpstr-jekyll-theme
 
 port: 4001
-
-collections:
-  authors:
-    output: true
-    permalink: /authors/:path/

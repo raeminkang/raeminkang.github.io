@@ -9,6 +9,20 @@ body {
 // Main
 // --------------------------------------------------
 .entry,
+.hentry_index {
+	@include clearfix;
+	h1, h2, h3, h4, h5, h6, p, li {
+		word-wrap: break-word;
+	}
+	@media #{$response_border_min} {
+		display: flex;
+	}
+	.hentry_text {
+		@media #{$response_border_min} {
+			width: 80%;
+		}
+	}
+}
 .hentry {
 	@include clearfix;
 	h1, h2, h3, h4, h5, h6, p, li {
@@ -20,6 +34,7 @@ body {
 }
 .entry-content {
 	@include font-size(16);
+	word-break:break-all;
 	// Dotted line underlines for links
 	p > a,
 	li > a {
@@ -99,7 +114,7 @@ body {
 	}
 	.vcard {
 		&:before {
-			content: " by ";
+			// content: " by ";
 		}
 	}
 	.tag {
@@ -276,6 +291,10 @@ header .entry-meta {
 	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
 	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
 }
+.small {
+	width: 60px;
+	height: 60px;
+}
 .author-container{
 	display: inherit;
 }
@@ -371,8 +390,27 @@ ul.social-buttons li a:active {
 		}
 		@media #{$large} {
 			margin-bottom: 30px;
-			padding: 50px 80px;
+			// padding: 40px 170px 40px 40px;
+			// padding: 50px 80px;
 		}
+	}
+}
+.list_author {
+	@media #{$response_border_min} {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 20%;
+	}
+	.author_nickname{
+		text-align: center;
+		margin: 20px;
+	}
+	.list_author_profile {
+		margin: 20px 20px 0px 20px;
+		width: 90px;
+		height: 90px;
 	}
 }
 /** Search result dropdown **/
@@ -469,8 +507,9 @@ ul.social-buttons li a:active {
 		margin-right: -80px;
 		margin-bottom: 20px;
 	}
-	img {
-		@include border-radius(3px,0,0,3px); // round image corners
+	img{
+		width: 100%;
+		height: 300px;
 	}
 }
 
@@ -546,6 +585,29 @@ ul.social-buttons li a:active {
 	overflow: hidden;
 	position: relative;
 	height: 100%;
+	overflow: hidden;
+	// KMEMO 반복 없애기
+	background: no-repeat center;
+	background-size: cover;
+	// height: 50px;
+	// @media #{$small} {
+	// 	background-color: $header-color;
+	// 	min-height: 170px;
+	// }
+	// 768px 이하는 170px / 아니면 300px ( 최소 )
+	@media #{$response_border_max} {
+		background-color: $header-color;
+		min-height: 170px;
+	}
+	@media #{$response_border_min} {
+		background-color: $header-color;
+		min-height: 300px;
+	}
+}
+.post-Header-Image{
+	width: 100%;
+	overflow: hidden;
+	position: relative;
 	overflow: hidden;
 	// KMEMO 반복 없애기
 	background: no-repeat center;

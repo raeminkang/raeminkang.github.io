@@ -4,8 +4,16 @@
     {% comment %} Link for previous page {% endcomment %}
     {% if paginator.previous_page %}
       {% if paginator.previous_page == 1 %}
+        <li><a href="{{ site.url }}/" class="btn">&laquo;</a></li>
         <li><a href="{{ site.url }}/" class="btn">Previous</a></li>
       {% else %}
+      <!-- KMEMO liquid plus / minus operator -->
+        {% assign distance_prev = paginator.page | minus: 1 %}
+        {% if distance_prev > 5 %}
+          <li><a href="{{ site.url }}/page{{ paginator.page | minus: 5 }}/" class="btn">&laquo;</a></li>
+        {% else %}
+          <li><a href="{{ site.url }}/" class="btn">&laquo;</a></li>
+        {% endif %}
         <li><a href="{{ site.url }}/page{{ paginator.previous_page }}/" class="btn">Previous</a></li>
       {% endif %}
     {% endif %}
@@ -60,6 +68,12 @@
     {% endcomment %}
     {% if paginator.next_page %}
       <li><a href="{{ site.url }}/page{{ paginator.next_page }}/" class="btn">Next</a></li>
+      {% assign distance_next = paginator.total_pages | minus: paginator.page %}
+      {% if distance_next  > 5 %}
+        <li><a href="{{ site.url }}/page{{ paginator.page | plus: 5 }}/" class="btn">&raquo;</a></li>
+      {% else %}
+        <li><a href="{{ site.url }}/page{{ paginator.total_pages }}/" class="btn">&raquo;</a></li>
+      {% endif %}
     {% endif %}
   </ul>
 </div>

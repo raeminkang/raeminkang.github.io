@@ -13,7 +13,7 @@
 {% include header.html %}
 
 {% if page.layout != 'author'%}
-  <div class="adImage" style="background-image:url(/images/{{ site.adImage }});">
+  <div class="adImage" style="cursor: pointer; background-image:url(/images/{{ site.adImage }});" onclick="location.href='{{ site.adUrl }}'">
     <!-- <img src="{{ site.url }}/images/{{ site.adImage }}" alt=""> -->
   </div>
 {% else %}

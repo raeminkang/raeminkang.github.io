@@ -1,0 +1,12 @@
+---
+layout: home
+title: tag
+---
+<!-- KMEMO page.name -> _tags/태그명.md 파일에 들어있는 name 변수 -->
+{% for post in site.posts %}
+  {% if post.tags contains page.name %}
+    {% include post_article.html %}
+  {% endif %}
+{% endfor %}
+
+<!-- {% include pagination.html %} -->

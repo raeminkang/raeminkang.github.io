@@ -68,21 +68,12 @@
 
 <!-- KMEMO upperImage -> 위의 이미지 -->
 <!-- KMEMO author별 백그라운드 이미지 삽입 경로 수정 할 때 -->
-<div class="entry-header" {% if site.image and page.layout == 'home' %}
-                              style="background-image:url({{ site.image }});"
-                          {% elsif page.image.feature and page.layout == 'post' %}
-                              {% if page.image.feature %}
-                                style="background-image:url(/images/posts/{{ page.image.feature }});"
-                              {% else %}
-                                style="background-image:url({{ site.image }});"
-                              {% endif %}
-                          {% elsif page.layout =='author' %}
-                              {% if author.cover %}
-                                style="background-image:url(/images/authors/{{ author.name }}/cover/{{ author.cover }});"
-                              {% else %}
-                                style="background-image:url({{ site.image }});"
-                              {% endif %}
-                          {% endif %}>
+<div {% if site.image and page.layout == 'post' %}
+        style="display:none;"
+     {% else %}
+        class="entry-header"
+        style="background-image:url({{ site.image }});"
+     {% endif %}>
   <div class="header-title">
     <div class="header-title-wrap">
       {% if page.layout == 'home' %}
@@ -111,6 +102,17 @@
             {% assign readtime = content | strip_html | number_of_words | divided_by:site.words_per_minute %}
             Reading time ~{% if readtime <= 1 %}1 minute{% else %}{{ readtime }} minutes{% endif %}
           </p><!-- /.entry-reading-time -->
+        {% endif %}
+      {% elsif page.layout == 'tag' %}
+        <h1>Tag : {{ page.name }}</h1>
+        <h2></h2>
+        <p>{{ page.description | newline_to_br }}</p>
+        {% if page.date %}
+          <!-- page.date -->
+          <h2><span class="entry-date date published updated"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time></span></h2>
+        {% else %}
+          <!-- page.date not -->
+          <!-- <h2><span class="entry-date"><time>&nbsp;</time></span></h2> -->
         {% endif %}
       {% endif %}
 
@@ -165,25 +167,4 @@
       searchResultTemplate: '<li class="entry-title"><a class="searchResult" style="color:black;" href="{url}" title="{title}">{title}</a></li>'
     });
   }
-
-  // $('#searchBtn').click(function (e) {
-  //     e.stopPropagation();
-  //     e.preventDefault();
-  //     e.log('click')
-  //     if ($('#search-box').is(':visible')) {
-  //         $('#search-box').hide();
-  //     } else {
-  //         $('#search-box').hide();
-  //         $('#search-box').show();
-  //     }
-  // });
-  // $(function () {
-  //     // by default, blog menu is active unless page
-  //
-  // });
-  // (function (window, document, $) {
-  //     'use strict';
-  //
-  //
-  // }(window, window.document, window.jQuery));
 </script>
