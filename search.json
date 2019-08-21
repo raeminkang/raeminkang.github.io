@@ -11,7 +11,7 @@
       "type"     : "posts"
     },{% endfor %}{% for author in site.authors %}
     {
-      "profileImageUrl"  : "{{ site.url }}/images/authors/{{ author.name }}/profile/{{ author.profileImage }}",
+      "profileImageUrl"  : "{{ site.url }}/images/authors/{{ author.name }}/{{ author.profileImage }}",
       "title"    : "{{ author.name }}",
       "url"      : "{{ site.url }}/authors/{{ author.name }}",
       "type"     : "authors"

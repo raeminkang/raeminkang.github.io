@@ -104,7 +104,9 @@
           </p><!-- /.entry-reading-time -->
         {% endif %}
       {% elsif page.layout == 'tag' %}
-        <h1>Tag : {{ page.name }}</h1>
+      <!-- KMEMO tag 이름 변경 -->
+        {% assign tag_name = page.name | replace:".html","" | replace:"-"," " | capitalize %}
+        <h1>Tag : {{ tag_name }}</h1>
         <h2></h2>
         <p>{{ page.description | newline_to_br }}</p>
         {% if page.date %}

@@ -38,15 +38,11 @@
       </div>
       {% endif %}
     </div><!-- /.entry-content -->
-    <ul class="entry-meta inline-list">
-      {% for tag in post.tags %}
-      <a href="{{ site.url }}/tags/{{ tag }}" title="Pages tagged {{ tag }}" class="tag"><span class="term">{{ tag }}</span></a>
-      {% endfor %}
-    </ul>
+    {% include index_tagging.html %}
   </div>
   <div class="list_author">
     <a href="{{ site.url }}/authors/{{ author.name }}" style="text-align: center;">
-      <img src="{{ site.url }}/images/authors/{{ author.name }}/profile/{{ author.profileImage }}" class="author-img small" alt="">
+      <img src="{{ site.url }}/images/authors/{{ author.name }}/{{ author.profileImage }}" class="author-img small" alt="">
       <p class="author_nickname">{{ author.nickname }}</p>
     </a>
   </div>
