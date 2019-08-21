@@ -1,8 +1,8 @@
 ---
 layout: post
 title: youtube video
-tags: [youtube,video]
-categories: video
+tags: [youtube,Video]
+categories: Video
 author: IceBear
 
 image:

@@ -1,31 +1,21 @@
 <article class="hentry_index" style=" cursor: pointer;" OnClick="location.href='{{ site.url}}{{ post.url }}'">
   <div class="hentry_text">
     <header>
-      <!-- {% if post.image.feature %}
-        <div class="entry-image-index">
-          <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">
-            <img src="{{ site.url }}/images/{{ post.image.feature }}" alt="{{ post.title }}"></a>
-            {% if post.image.credit %}
-              <div class="image-credit">Image source: <a target="_blank" href="{{ post.image.creditlink }}">{{ post.image.credit }}</a>
-              </div> /.image-credit
-            {% endif %}
-        </div> /.entry-image
-      {% endif %} -->
       {% for all_authors in site.authors %}
-        {% if post.author %}
-          {% if all_authors.name == post.author %}
-            {% assign author = all_authors %}
-          {% endif %}
-        {% else %}
-          {% assign author = false %}
-        {% endif %}
+      {% if post.author %}
+      {% if all_authors.name == post.author %}
+      {% assign author = all_authors %}
+      {% endif %}
+      {% else %}
+      {% assign author = false %}
+      {% endif %}
       {% endfor %}
       <div class="entry-meta">
-        <!-- <span class="author vcard">
-          <span class="fn">
-            <a href="{{ site.url }}/authors/{{ author.name }}" title="About {{ author.name }}">{{ author.nickname }}</a>
-          </span>
-        </span> -->
+        <span class="entry-date date published updated">
+          <time datetime="{{ post.date | date_to_xmlschema }}">
+            <a href="{{ site.url }}{{ post.url }}">{{ post.date | date: "%B %d, %Y" }}</a>
+          </time>
+        </span>
         {% if site.reading_time %}
         <span class="entry-reading-time">
           <i class="fa fa-clock-o"></i>
@@ -35,22 +25,22 @@
         {% endif %}
       </div><!-- /.entry-meta -->
       {% if post.link %}
-        <h1 class="entry-title"><a href="{{ site.url }}{{ post.url }}" class="permalink" rel="bookmark" title="{{ post.title }}"><i class="fa fa-bookmark"></i></a> <a href="{{ post.link }}">{{ post.title }}</a></h1>
+      <h1 class="entry-title"><a href="{{ site.url }}{{ post.url }}" class="permalink" rel="bookmark" title="{{ post.title }}"><i class="fa fa-bookmark"></i></a> <a href="{{ post.link }}">{{ post.title }}</a></h1>
       {% else %}
-        <h1 class="entry-title"><a href="{{ site.url }}{{ post.url }}" rel="bookmark" title="{{ post.title }}" itemprop="url">{{ post.title }}</a></h1>
+      <h1 class="entry-title"><a href="{{ site.url }}{{ post.url }}" rel="bookmark" title="{{ post.title }}" itemprop="url">{{ post.title }}</a></h1>
       {% endif %}
     </header>
     <div class="entry-content">
       {{ post.excerpt | strip_html | truncatewords: 75 }}
       {% if post.content contains "<!-- more -->" %}
-          <div align="center">
-              <div markdown="0"><a href="{{ site.url }}{{ post.url }}" class="btn btn-info">Continue Reading ...</a></div>
-          </div>
+      <div align="center">
+        <div markdown="0"><a href="{{ site.url }}{{ post.url }}" class="btn btn-info">Continue Reading ...</a></div>
+      </div>
       {% endif %}
     </div><!-- /.entry-content -->
     <ul class="entry-meta inline-list">
       {% for tag in post.tags %}
-        <a href="{{ site.url }}/tags/{{ tag }}" title="Pages tagged {{ tag }}" class="tag"><span class="term">{{ tag }}</span></a>
+      <a href="{{ site.url }}/tags/{{ tag }}" title="Pages tagged {{ tag }}" class="tag"><span class="term">{{ tag }}</span></a>
       {% endfor %}
     </ul>
   </div>
@@ -58,11 +48,6 @@
     <a href="{{ site.url }}/authors/{{ author.name }}" style="text-align: center;">
       <img src="{{ site.url }}/images/authors/{{ author.name }}/profile/{{ author.profileImage }}" class="author-img small" alt="">
       <p class="author_nickname">{{ author.nickname }}</p>
-      <span class="entry-date date published updated">
-        <time datetime="{{ post.date | date_to_xmlschema }}">
-          <a href="{{ site.url }}{{ post.url }}">{{ post.date | date: "%B %d, %Y" }}</a>
-        </time>
-      </span>
     </a>
   </div>
 </article><!-- /.hentry -->

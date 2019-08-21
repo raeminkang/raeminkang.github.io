@@ -29,6 +29,15 @@ body {
 		word-wrap: break-word;
 	}
 }
+.PageNavigation {
+	@media #{$medium} {
+		
+	}
+	@media #{$large} {
+		max-width: 800px;
+		margin: 0 auto;
+	}
+}
 .hentry-dark {
 	background-color: $header-color;
 }
@@ -290,6 +299,15 @@ header .entry-meta {
 	box-shadow: 0 0 8px rgba(0, 0, 0, .8);
 	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
 	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+}
+.searchResultBox {
+	text-align: left;
+	vertical-align: middle;
+	height: 30px;
+}
+.searchResultImg {
+	width: 30px;
+	height: 30px;
 }
 .small {
 	width: 60px;

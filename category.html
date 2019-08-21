@@ -6,14 +6,12 @@ comments: false
 ---
 
 {% capture site_cats %}{% for cat in site.categories %}{{ cat | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
-<!-- <a href="#">{{ site_cats }}</a> -->
 {% assign cats_list = site_cats | split:',' | sort %}
-<!-- <a href="#">{{ cats_list[0] }}</a> -->
 
 <ul class="entry-meta inline-list">
   {% for item in (0..site.categories.size) %}{% unless forloop.last %}
     {% capture this_word %}{{ cats_list[item] | strip_newlines }}{% endcapture %}
-  	<li><a href="#{{ this_word }}" class="tag"><span class="term">{{ this_word }}</span> <span class="count">{{ site.categories[this_word].size }}</span></a></li>
+  	<li><a href="{{ this_word }}" class="tag"><span class="term">{{ this_word }}</span> <span class="count">{{ site.categories[this_word].size }}</span></a></li>
   {% endunless %}{% endfor %}
 </ul>
 

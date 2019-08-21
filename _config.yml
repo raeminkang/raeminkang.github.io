@@ -29,8 +29,9 @@ menu:
     # url: 'http://github.com/aron-bordin/neo-hpstr-jekyll-theme#installation'
   # - title: 'Tags'
   #   url: '/tags'
+  #   type: 'tags'
   - title: 'Categories'
-    url: '/categories'
+    url: '/category'
     type: 'categories'
   # - title: 'authors'
   #   url: '/authors'
@@ -72,6 +73,9 @@ collections:
   authors:
     output: true
     permalink: /authors/:path/
+  category:
+    output: true
+    permalink: /category/:path/
   tags:
     output: true
     permalink: /tags/:path/
@@ -82,6 +86,11 @@ defaults:
       type: authors
     values:
       layout: author
+  - scope:
+      path: ''
+      type: category
+    values:
+      layout: category
   - scope:
       path: ''
       type: tags
@@ -108,7 +117,7 @@ sass:
   style: compressed
 
 # https://github.com/mojombo/jekyll/wiki/Permalinks
-permalink:   /:categories/:title/
+# permalink:   /:categories/:title/
 
 # Amount of post to show on home page
 paginate: 5
@@ -128,7 +137,7 @@ titlecase: true
 
 include: [".htaccess"]
 exclude: ["demo/*", "lib", "config.rb", "Capfile", "config", "Gemfile", "Gemfile.lock", "README.md", "LICENSE", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules"]
-plugins: [jekyll-paginate]
+plugins: [jekyll-paginate,jekyll-admin]
 theme: neo-hpstr-jekyll-theme
 
 port: 4001

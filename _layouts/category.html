@@ -1,13 +1,14 @@
 ---
 layout: home
-title: tag
+title: categories
 ---
 <!-- KMEMO page.name -> _tags/태그명.md 파일에 들어있는 name 변수 -->
 {% for post in site.posts %}
-  {% assign post_tags_name = post.tags | downcase %}
-  {% assign search_tag_name = page.name | downcase %}
-  {% if post_tags_name contains search_tag_name %}
+  {% assign post_category_name = post.categories | downcase %}
+  {% assign search_category_name = page.name | downcase %}
+  {% if post_category_name contains search_category_name %}
     {% include post_article.html %}
   {% endif %}
 {% endfor %}
+
 <!-- {% include pagination.html %} -->

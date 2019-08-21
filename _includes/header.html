@@ -20,8 +20,8 @@
           <li class="header-item {{class}}"><a href="{{site.url}}{{menu.url}}"><h3>{{ menu.title }}</h3></a>
             <ul class="header-submenu">
               {% for item in (0..site.categories.size) %}{% unless forloop.last %}
-                {% capture this_word %}{{ cats_list[item] | strip_newlines }}{% endcapture %}
-                  <li class="sub-item"><a href="{{site.url}}/categories/#{{this_word}}">{{this_word}}</a></li>
+                {% capture this_word %}{{ cats_list[item] | strip_newlines | capitalize }}{% endcapture %}
+                  <li class="sub-item"><a href="{{site.url}}/category/{{this_word}}">{{this_word}}</a></li>
               {% endunless %}{% endfor %}
             </ul>
           </li>
@@ -68,7 +68,7 @@
 
 <!-- KMEMO upperImage -> 위의 이미지 -->
 <!-- KMEMO author별 백그라운드 이미지 삽입 경로 수정 할 때 -->
-<div {% if site.image and page.layout == 'post' %}
+<div {% if site.image and page.layout == 'post' or page.layout =='author' %}
         style="display:none;"
      {% else %}
         class="entry-header"
@@ -105,6 +105,17 @@
         {% endif %}
       {% elsif page.layout == 'tag' %}
         <h1>Tag : {{ page.name }}</h1>
+        <h2></h2>
+        <p>{{ page.description | newline_to_br }}</p>
+        {% if page.date %}
+          <!-- page.date -->
+          <h2><span class="entry-date date published updated"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time></span></h2>
+        {% else %}
+          <!-- page.date not -->
+          <!-- <h2><span class="entry-date"><time>&nbsp;</time></span></h2> -->
+        {% endif %}
+      {% elsif page.layout == 'category' %}
+        <h1>Category : {{ page.name }}</h1>
         <h2></h2>
         <p>{{ page.description | newline_to_br }}</p>
         {% if page.date %}
@@ -164,7 +175,7 @@
       searchInput: document.getElementById('search-input'),
       resultsContainer: document.getElementById('results-container'),
       json: '{{site.url}}/search.json',
-      searchResultTemplate: '<li class="entry-title"><a class="searchResult" style="color:black;" href="{url}" title="{title}">{title}</a></li>'
+      searchResultTemplate: {% include searchResult.html %}
     });
   }
 </script>
