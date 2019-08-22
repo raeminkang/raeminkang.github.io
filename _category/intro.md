@@ -1,4 +1,4 @@
 ---
 name: intro
-description: intro desc
+description: Intro desc
 ---

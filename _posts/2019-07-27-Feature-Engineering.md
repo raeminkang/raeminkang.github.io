@@ -3,10 +3,10 @@ layout: post
 title: "Feature Engineering"
 last_modified_at: 2019-07-27 T20:35:00-05:00
 categories:
-  - Machine Learning
+  - machine learning
 tags:
-  - Machine Learning
-  - Kaggle Study
+  - machine learning
+  - kaggle study
 author: homerSimpson
 toc: true
 toc_label: "목차"

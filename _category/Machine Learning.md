@@ -1,4 +1,4 @@
 ---
-name: Machine Learning
+name: machine learning
 description: Machine Learning desc
 ---

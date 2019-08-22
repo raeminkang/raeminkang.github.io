@@ -3,13 +3,11 @@ layout: post
 title: "Lotto Data Analysis"
 last_modified_at: 2019-07-27 T20:35:00-05:00
 categories:
-  - Machine Learning
+  - machine learning
 tags:
-  - Machine Learning
+  - machine learning
 
-image:
-  feature: Lotto-Data-Analysis/homer.jpg
-  upperImage: Lotto-Data-Analysis/bartsimpson.jpg
+image: Lotto-Data-Analysis/bartsimpson.jpg
 author: homerSimpson
 ---
 
@@ -24,7 +22,7 @@ author: homerSimpson
 예시를 통해 알아 보자. 동네 편의점의 매출이력 ( transaction )이 다음과 같다고 가정하자.
 
 
-![매출이력](/images/posts/Lotto-Data-Analysis/firstImage.png)
+![매출이력](/images/posts/Lotto-Data-AnaLysis/firstImage.png)
 ( 출처 : [https://ratsgo.github.io/machine%20learning/2017/04/08/apriori/](https://ratsgo.github.io/machine%20learning/2017/04/08/apriori/) )
 
 

@@ -1,4 +1,4 @@
 ---
-name: Statistics
+name: statistics
 description: Statistics desc
 ---

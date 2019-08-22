@@ -2,12 +2,10 @@
 layout: post
 title: youtube video
 tags: [youtube,Video]
-categories: Video
+categories: video
 author: IceBear
 
-image:
-  upperImage: youtube-sample/thirdImage.png
-  feature: youtube-sample/homer.jpg
+image: youtube-sample/homer.jpg
 
 ---
 ## 비디오를 이렇게 넣을 수 있습니다.

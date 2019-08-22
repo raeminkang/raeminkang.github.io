@@ -3,9 +3,9 @@ layout: post
 title: "Kaggle Competition Study"
 last_modified_at: 2019-07-27 T20:35:00-05:00
 categories:
-  - Machine Learning
+  - machine learning
 tags:
-  - Kaggle Study
+  - kaggle study
 author: bartSimpson
 ---
 

@@ -10,7 +10,7 @@
   {% include head.html %}
 </head>
 
-<body id="post" {% if page.image.feature %}class="feature" {% endif %}>
+<body id="post" {% if page.image %}class="feature" {% endif %}>
 
   {% include browser-upgrade.html %}
   {% include header.html %}
@@ -25,8 +25,8 @@
     <article class="hentry">
       <div class="entry-content">
         <div class="entry-image-index">
-          {% if page.image.feature %}
-          <img src="{{ site.url }}/images/posts/{{ page.image.feature }}" alt="{{ page.title }}">
+          {% if page.image %}
+          <img src="{{ site.url }}/images/posts/{{ page.image }}" alt="{{ page.title }}">
           {% else %}
           <img src="{{ site.url }}{{ site.image }}" alt="{{ page.title }}">
           {% endif %}
