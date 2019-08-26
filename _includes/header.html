@@ -21,7 +21,8 @@
             <ul class="header-submenu">
               {% for item in (0..cats_list.size) %}{% unless forloop.last %}
                 {% capture this_word %}{{ cats_list[item] | strip_newlines }}{% endcapture %}
-                  <li class="sub-item"><a href="{{site.url}}/category/{{this_word}}">{{this_word}}</a></li>
+                  {% assign downcase_word = this_word | downcase %}
+                  <li class="sub-item"><a href="{{site.url}}/category/{{downcase_word}}">{{this_word}}</a></li>
               {% endunless %}{% endfor %}
             </ul>
           </li>
@@ -146,7 +147,8 @@
           <ul>
             {% for item in (0..cats_list.size) %}{% unless forloop.last %}
               {% capture this_word %}{{ cats_list[item] | strip_newlines }}{% endcapture %}
-                <li><a href="{{site.url}}/category/{{this_word}}">{{this_word}}</a></li>
+                {% assign downcase_word = this_word | downcase %}
+                <li><a href="{{site.url}}/category/{{downcase_word}}">{{this_word}}</a></li>
             {% endunless %}{% endfor %}
           </ul>
         </li>
