@@ -508,6 +508,18 @@ ul.social-buttons li a:active {
 }
 
 .entry-image-index {
+	@media #{$response_border_max} {
+		img{
+			width: 100%;
+			height: 200px;
+		}
+	}
+	@media #{$response_border_min} {
+		img{
+			width: 100%;
+			height: 300px;
+		}
+	}
 	margin-top: -25px;
 	margin-left: -15px;
 	margin-right: -15px;
@@ -524,10 +536,6 @@ ul.social-buttons li a:active {
 		margin-left: -80px;
 		margin-right: -80px;
 		margin-bottom: 20px;
-	}
-	img{
-		width: 100%;
-		height: 300px;
 	}
 }
 
