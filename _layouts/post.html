@@ -72,7 +72,7 @@
         <footer class="entry-meta">
           <span class="entry-tags">
             {% for tag in page.tags %}
-            {% assign non_black_tag = tag | replace:" ","-" %}
+            {% assign non_black_tag = tag %}
             <a href="{{ site.url }}/tags/{{ non_black_tag }}" title="Pages tagged {{ non_black_tag }}" class="tag">
               <span class="term">
                 {{ tag }}

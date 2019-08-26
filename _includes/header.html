@@ -144,7 +144,7 @@
       {% if menu.type == 'categories' %}
         <li><a href="{{site.url}}{{menu.url}}"><h3>{{ menu.title }}</h3></a>
           <ul>
-            {% for item in (0..site.categories.size) %}{% unless forloop.last %}
+            {% for item in (0..cats_list.size) %}{% unless forloop.last %}
               {% capture this_word %}{{ cats_list[item] | strip_newlines }}{% endcapture %}
                 <li><a href="{{site.url}}/category/{{this_word}}">{{this_word}}</a></li>
             {% endunless %}{% endfor %}
