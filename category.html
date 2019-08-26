@@ -54,7 +54,8 @@ comments: false
 
   {% for item in cate_list %}
     {% assign split_cate = item | split: ":" %}
-  	<li><a href="{{ site.url }}/category/{{ split_cate[0] }}" class="tag"><span class="term">{{ split_cate[0] }}</span> <span class="count">{{ split_cate[1] }}</span></a></li>
+    {% assign down_cate = split_cate[0] | downcase | strip_newlines %}
+  	<li><a href="{{ site.url }}/category/{{ down_cate }}" class="tag"><span class="term">{{ split_cate[0] }}</span> <span class="count">{{ split_cate[1] }}</span></a></li>
    {% endfor %}
 </ul>
 
