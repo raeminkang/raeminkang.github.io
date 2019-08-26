@@ -6,24 +6,74 @@ comments: false
 ---
 
 {% capture site_cats %}{% for cat in site.categories %}{{ cat | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
-{% assign cats_list = site_cats | split:',' | sort %}
+{% assign cats_list = site_cats | split:',' | sort | uniq %}
+
+{% assign temp_cat = "start" %}
+{% capture cate_string %}
+{% for item in site.categories %}{% assign cate = item | first %}{% assign cap_cate = cate | capitalize %}{% assign now_cate_size = site.categories[cate].size %}{{ cap_cate }}:{{ now_cate_size }}:false{% unless forloop.last %}, {% endunless %}{% endfor %}{% endcapture %}
+
+{% assign split_all_cate = cate_string | split: ', ' %}
+
+{% for split_cate in split_all_cate %}
+  {% assign split_all_cate_detail = split_all_cate | split: ':' %}
+{% endfor %}
+{% assign cate_size_minus = split_all_cate.size | minus: 1 %}
+{% for i in (0..cate_size_minus) %}
+  {% assign split_all_cate_detail = split_all_cate[i] | split: ':' %}
+  {% assign idx = i | plus: 1 %}
+  {% for j in (idx..split_all_cate.size) %}
+    {% assign split_all_cate_detail_j = split_all_cate[j] | split: ':' %}
+    {% if split_all_cate_detail[0] == split_all_cate_detail_j[0] %}
+      {% assign replace_str = split_all_cate[j] %}
+      {% assign replace_new_str = split_all_cate[j] | replace:"false", "dup" %}
+      {% assign cate_string = cate_string | replace_first: replace_str, replace_new_str %}
+
+      {% assign replace_str = split_all_cate[i] %}
+      {% assign sum = split_all_cate_detail_j[1] | plus: split_all_cate_detail[1] %}
+      {% assign replace_new_str = split_all_cate[i] | replace: split_all_cate_detail[1], sum %}
+      {% assign cate_string = cate_string | replace_first: replace_str, replace_new_str %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+
+{% assign cate_str_split = cate_string | split: ', ' %}
+{% for i in cate_str_split %}
+  {% assign split_str = i | split: ":" %}
+  {% if split_str[2] == "dup" %}
+    {% assign remove_str = ", " | append: i %}
+    {% assign cate_string = cate_string | replace_first: remove_str, "" %}
+  {% endif %}
+{% endfor %}
+{% assign cate_list = cate_string | split: ", " %}
+{% assign total_cate_size = cate_list.size | minus: 1 %}
+{% for item in (0..total_cate_size)%}
+  {% assign split_cate = cate_list[item] | split: ", " %}
+{% endfor %}
 
 <ul class="entry-meta inline-list">
-  {% for item in (0..site.categories.size) %}{% unless forloop.last %}
-    {% capture this_word %}{{ cats_list[item] | strip_newlines }}{% endcapture %}
-  	<li><a href="{{ this_word }}" class="tag"><span class="term">{{ this_word }}</span> <span class="count">{{ site.categories[this_word].size }}</span></a></li>
-  {% endunless %}{% endfor %}
+
+  {% for item in cate_list %}
+    {% assign split_cate = item | split: ":" %}
+  	<li><a href="{{ site.url }}/category/{{ split_cate[0] }}" class="tag"><span class="term">{{ split_cate[0] }}</span> <span class="count">{{ split_cate[1] }}</span></a></li>
+   {% endfor %}
 </ul>
 
-{% for item in (0..site.categories.size) %}{% unless forloop.last %}
-  {% capture this_word %}{{ cats_list[item] | strip_newlines }}{% endcapture %}
-  <span class="anchor-bookmark" id="{{ this_word }}"></span>
+{% for item in cate_list %}
+  {% assign split_cate = item | split: ":" %}
+  <span class="anchor-bookmark" id="{{ split_cate[0] }}"></span>
 	<article>
-	<h2 class="tag-heading">{{ this_word }}</h2>
+	<h2 class="tag-heading">{{ split_cate[0] }}</h2>
 		<ul>
-    {% for post in site.categories[this_word] %}{% if post.title != null %}
-      <li class="entry-title"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
-    {% endif %}{% endfor %}
+    {% assign down_cate = split_cate[0] | downcase | strip_newlines %}
+    {% for category in site.categories %}
+     {% assign cate_name = category.first | strip_newlines %}
+     {% assign downcase_cate = cate_name | downcase %}
+     {% if down_cate == downcase_cate %}
+       {% for post in site.categories[cate_name] %}{% if post.title != null %}
+         <li class="entry-title"><a href="{{ site.url }}/{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
+       {% endif %}{% endfor %}
+     {% endif %}
+    {% endfor %}
 		</ul>
 	</article><!-- /.hentry -->
-{% endunless %}{% endfor %}
+{% endfor %}

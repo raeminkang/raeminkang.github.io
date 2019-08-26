@@ -1,6 +1,6 @@
 <ul class="entry-meta inline-list">
   {% for tag in post.tags %}
-  {% assign non_black_tag = tag | replace:" ","-" %}
+  {% assign non_black_tag = tag %}
   <a href="{{ site.url }}/tags/{{ non_black_tag }}" title="Pages tagged {{ non_black_tag }}" class="tag"><span class="term">{{ tag }}</span></a>
   {% endfor %}
 </ul>
