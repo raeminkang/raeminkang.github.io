@@ -72,8 +72,8 @@
         <footer class="entry-meta">
           <span class="entry-tags">
             {% for tag in page.tags %}
-            {% assign non_black_tag = tag %}
-            <a href="{{ site.url }}/tags/{{ non_black_tag }}" title="Pages tagged {{ non_black_tag }}" class="tag">
+            {% assign downcase_tag = tag | downcase %}
+            <a href="{{ site.url }}/tags/{{ downcase_tag }}" title="Pages tagged {{ downcase_tag }}" class="tag">
               <span class="term">
                 {{ tag }}
               </span>
