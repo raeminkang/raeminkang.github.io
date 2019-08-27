@@ -21,8 +21,7 @@ author: homerSimpson
 
 예시를 통해 알아 보자. 동네 편의점의 매출이력 ( transaction )이 다음과 같다고 가정하자.
 
-
-![매출이력](/images/posts/Lotto-Data-AnaLysis/firstImage.png)
+![매출이력](/images/posts/Lotto-Data-Analysis/firstImage.png)
 ( 출처 : [https://ratsgo.github.io/machine%20learning/2017/04/08/apriori/](https://ratsgo.github.io/machine%20learning/2017/04/08/apriori/) )
 
 
