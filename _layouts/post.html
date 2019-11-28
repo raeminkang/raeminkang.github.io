@@ -14,7 +14,7 @@
 <body id="post" {% if page.image %}class="feature" {% endif %}>
 
   {% include browser-upgrade.html %}
-  {% include header.html %}
+  {% include header-menu-top.html %}
 
   {% for all_authors in site.authors %}
   {% if all_authors.name == page.author %}
@@ -25,57 +25,16 @@
   <div id="main" role="main">
     <article class="hentry">
       <div class="entry-content">
-        <div class="entry-image-index">
-          {% if page.image %}
-          <img src="{{ site.url }}/images/posts/{{ page.image }}" alt="{{ page.title }}">
-          {% else %}
-          <img src="{{ site.url }}{{ site.image }}" alt="{{ page.title }}">
-          {% endif %}
-          {% if page.image.credit %}
-          <div class="image-credit">Image source: <a target="_blank" href="{{ page.image.creditlink }}">{{ page.image.credit }}</a>
-          </div> <!-- /.image-credit -->
-          {% endif %}
-          <div class="header-title">
-            <div class="header-title-wrap">
-              {% if page.layout == 'home' %}
-                <h1>{{ page.title }}</h1>
-                <h2></h2>
-                <p>{{ site.description | newline_to_br }}</p>
-                {% if page.date %}
-                  <!-- page.date -->
-                  <h2><span class="entry-date date published updated"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time></span></h2>
-                {% else %}
-                  <!-- page.date not -->
-                  <!-- <h2><span class="entry-date"><time>&nbsp;</time></span></h2> -->
-                {% endif %}
-              {% elsif page.layout == 'post' %}
-                <h1>{{ page.title }}</h1>
-                {% if page.date %}
-                <!-- page.date -->
-                <h2><span class="entry-date date published updated"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time></span></h2>
-                {% else %}
-                <!-- page.date not -->
-                <h2><span class="entry-date"><time>&nbsp;</time></span></h2>
-                {% endif %}
-                {% if site.reading_time %}
-                <p class="entry-reading-time">
-                  <i class="fa fa-clock-o"></i>
-                  {% assign readtime = content | strip_html | number_of_words | divided_by:site.words_per_minute %}
-                  Reading time ~{% if readtime <= 1 %}1 minute{% else %}{{ readtime }} minutes{% endif %}
-                </p><!-- /.entry-reading-time -->
-                {% endif %}
-              {% endif %}
-            </div><!-- /.header-title-wrap -->
-          </div><!-- /.header-title -->
-        </div>
-        <h1 class="post-title entry-title"></h1>
+        <span class="post-date">{{ page.date | date: "%Y.%m.%d" }}</span>
+        <h1 class="post-detail-title">{{ page.title }}</h1>
+        <!-- <h1 class="post-title entry-title"></h1> -->
         {{ content }}
         <footer class="entry-meta">
           <span class="entry-tags">
             {% for tag in page.tags %}
             {% assign downcase_tag = tag | downcase %}
             <a href="{{ site.url }}/tags/{{ downcase_tag }}" title="Pages tagged {{ downcase_tag }}" class="tag">
-              <span class="term">
+              <span class="tag-text">
                 {{ tag }}
               </span>
             </a>
@@ -83,24 +42,11 @@
             {% endunless %}
             {% endfor %}
           </span>
-          {% if page.modified %}<span>Updated on <span class="entry-date date updated"><time datetime="{{ page.modified }}">{{ page.modified | date: "%B %d, %Y" }}</time></span></span>
+          {% if page.modified %}<span>Updated on <span class="entry-date date updated"><time datetime="{{ page.modified }}">{{ page.modified | date: "%Y.%m.%d" }}</time></span></span>
           {% endif %}
-          <div style=" cursor: pointer;" OnClick="location.href='{{ site.url }}/authors/{{ author.name }}'">
-            <img src="{{ site.url }}/images/authors/{{ author.name }}/{{ author.profileImage }}" class="author-img small" alt="">
-            <p>
-              {{ author.bio }}
-              <br>
-              {{ author.position }}
-              <br>
-              <span class="author vcard"><span class="fn">{{ author.nickname }}</span></span>
-
-            </p>
-          </div>
+            {% include author-profile-small.html %}
           {% comment %}{% if page.share != false %}{% include social-share.html %}{% endif %}{% endcomment %}
         </footer>
-        <p>
-
-        </p>
       </div><!-- /.entry-content -->
     </article>
     <div class="PageNavigation">
@@ -112,10 +58,10 @@
       {% endif %}
       <br> -->
       {% if page.previous.url %}
-      <a class="prev pull-left" href="{{ site.url }}{{ page.previous.url }}">< {{ page.previous.title }}</a>
+        <a class="prev pull-left" href="{{ site.url }}{{ page.previous.url }}">< {{ page.previous.title }}</a>
       {% endif %}
       {% if page.next.url %}
-      <a class="next pull-right" href="{{ site.url }}{{ page.next.url }}">{{ page.next.title }} ></a>
+        <a class="next pull-right" href="{{ site.url }}{{ page.next.url }}">{{ page.next.title }} ></a>
       {% endif %}
     </div>
   </div><!-- /#main -->

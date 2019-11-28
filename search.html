@@ -1,28 +1,17 @@
 ---
-layout: home
 title: Search
-comments: false
+description: search
+layout: search
+permalink: /search/
+airklass_search_active: true 
+exclude_from_search: true
 ---
 
-<article>
-  <div style="text-align: center">
-    <h3>Finds a post by title, tag, category, date and url.</h3>
-    <input type="text" id="search-input"/>
-  </div>
-  <h3>Results:</h3>
-	<ul id="results-container">
-	</ul>
-</article><!-- /.hentry -->
-
-<script type="text/javascript">
-
-  window.onload = function(){
-    new SimpleJekyllSearch({
-      searchInput: document.getElementById('search-input'),
-      resultsContainer: document.getElementById('results-container'),
-      json: '{{site.url}}/search.json',
-      searchResultTemplate: '<li class="entry-title"><a href="{url}" title="{title}">{title}</a></li>'
-    });
-  }
-
+<div id="search-result-container"></div>
+<script>
+$(document).ready(function() {
+  $('#header-search-text').airklasssearch({
+    'wholeWords' : false, 
+    'showTime' : false  });
+});
 </script>

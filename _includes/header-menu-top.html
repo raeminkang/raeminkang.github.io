@@ -1,0 +1,190 @@
+{% capture site_cats %}{% for cat in site.categories %}{{ cat | first | capitalize }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
+{% assign cats_list = site_cats | split:',' | sort | uniq %}
+{% if page.airklass_search_active or layout.airklass_search_active%}
+<link rel="stylesheet" href="{{ site.url }}/assets/airklass_search/css/normalize.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="{{ site.url }}/assets/airklass_search/airklass_search_content.js"></script>
+<script src="{{ site.url }}/assets/airklass_search/airklass_search_set.js "></script>
+<script src="{{ site.url }}/assets/airklass_search/airklass_search.min.js "></script>
+{% endif %}
+
+<div 
+    {% if page.layout !='home' %}
+      class="header-menu header-menu-overflow" 
+    {% else %} 
+      id="header-menu-top" class="header-menu header-menu-top" 
+    {% endif %}>
+    <ul class="header-item-container">
+        <li class="header-toggle header-item-title">
+            {% if page.layout == 'home' %}
+              {% assign is_home = true %}
+            {% else %}
+              {% assign is_home = false %}
+            {% endif %}
+            <a id="mobile-navi-button">
+                <param id="layout-params" name="" value="{{ is_home }}">
+                <img id="ic-mobile-navi-button" class="mobile-navi-button" alt="" 
+                    {% if is_home %}
+                      src="{{ site.url }}/{{ site.resource_dir }}/btn-mobile-menu-open.png"
+                    {% else %}
+                      src="{{ site.url }}/{{ site.resource_dir }}/btn-mobile-menu-open-overflow.png"
+                    {% endif %}>
+            </a>
+        </li>
+        <li class="header-item-title">
+            <a href="{{site.url}}/">
+                {% if site.logo %}
+                  <img id="logo" class="logo" {% if page.layout != 'home' %} src="{{site.url}}/{{ site.resource_dir }}/logo-scroll.png" {% else %} src="{{site.url}}/{{ site.resource_dir }}/logo-default.png" {% endif %} alt="{{ site.title }}">
+                {% endif %}
+                <a href="{{site.url}}/" class="title">{{ site.title }}</a>
+            </a>
+        </li>
+        <li id="id-search-box" class="header-item search-icon" style="display: none;">
+            <div class="search-form-outline">
+                <div 
+                    {% if page.layout !='home' %}
+                      class="search-form-overflow" 
+                    {% else %} 
+                      class="search-form" 
+                    {% endif %}>
+                    <div class="search-form-inline">
+                        <a id="search-form-submit-icon" style="line-height: 0px;height: 36px;">
+                            <img id="ic-search" 
+                              {% if page.layout !='home' %}
+                                src="{{site.url}}/{{ site.resource_dir }}/ic-search-scroll.png"
+                              {% else %}
+                                src="{{site.url}}/{{ site.resource_dir }}/ic-search-default.png"
+                              {% endif %}
+                              class="ic-search">
+                        </a>
+                        <form action="{{ site.url }}/search/" class="header-input-form" id="search-form">
+                            <input  {% if page.layout != 'home' %}
+                                      class="header-input-overflow"
+                                    {% else %}
+                                      class="header-input"
+                                    {% endif %} 
+                                    type="text" name="search" id="header-search-text" pattern="(.*?)" autocomplete="off" placeholder="Search...">
+                        </form>
+                        <div class="search-close-container">
+                            <img id="ic-search-close" 
+                              {% if page.layout !='home' %}
+                                src="{{site.url}}/{{ site.resource_dir }}/ic-search-close-overflow.png" 
+                              {% else %}
+                                src="{{site.url}}/{{ site.resource_dir }}/ic-search-close.png"
+                              {% endif %} 
+                              class="ic-close-input">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li id="id-search-box-open-button" class="header-item search-icon">
+            <div class="search-form-outline">
+                <div>
+                    <div class="search-form-inline">
+                        <a id="search-form-submit-icon" style="line-height: 0px;height: 36px; cursor: pointer; " >
+                            <img id="ic-search-open" 
+                              {% if page.layout !='home' %}
+                                src="{{site.url}}/{{ site.resource_dir }}/ic-search-scroll.png"
+                              {% else %}
+                                src="{{site.url}}/{{ site.resource_dir }}/ic-search-default.png"
+                              {% endif %}
+                              class="ic-search">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        {% for menu in site.menu reversed %}
+        {% assign class = nil %}
+        {% if ((page.url contains menu.url and menu.url != '/') or (page.url == '/index.html' and menu.url == '/')) %}
+          {% assign class = 'active' %} 
+        {% endif %}
+        <!-- KMEMO menu ( tags / categories 등에 대한 설정 ) -->
+        {% if menu.type == 'categories' %}
+        <li class="header-item category">
+            <a onclick="return false" href="{{site.url}}{{menu.url}}" class="navi-category">{{ menu.title }}</a>
+            <ul class="header-submenu" id="header-submenu">
+                <div class="header-submenu-bg">
+                    {% for item in (0..cats_list.size) %}{% unless forloop.last %} {% capture this_word %}{{ cats_list[item] | strip_newlines }}{% endcapture %} {% assign downcase_word = this_word | downcase %}
+                    <li class="sub-item"><a href="{{site.url}}/category/{{downcase_word}}">{{this_word}}</a></li>
+                    {% endunless %}{% endfor %}
+                </div>
+            </ul>
+        </li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+</div>
+
+<!-- click 하면 style 설정 하도록 ? -->
+<nav id="phone-menu" class="phone-menu" scroll="no" style="display: none;">
+  <div class="phone-search-outline">
+    <div class="phone-search">
+      <div class="phone-search-inline">
+        <div class="phone-search-box">
+          <img id="phone-ic-search" src="{{site.url}}/{{ site.resource_dir }}/ic-search-scroll.png" class="phone-ic-search">
+          <form action="{{ site.url }}/search/" class="phone-header-input-form" id="search-form">
+            <input class="phone-header-input" type="search" name="search" id="header-search-text" pattern="(.*?)" autocomplete="off" placeholder="Search...">
+          </form>
+          <img id="phone-ic-search-delete" src="{{site.url}}/{{ site.resource_dir }}/ic-search-delete.png" class="phone-ic-delete">
+        </div>
+      </div>
+    </div>
+  </div>
+  <ul class="phone-menu-category-outline">
+      {% for item in (0..cats_list.size) %}
+      {% unless forloop.last %}
+        {% capture this_word %}{{ cats_list[item] | strip_newlines }}{% endcapture %}
+        {% assign downcase_word = this_word | downcase %}
+        <li>
+          <div onclick="location.href='{{site.url}}/category/{{downcase_word}}'" class="phone-menu-list">
+            <span class="phone-menu-category-text">{{this_word}}</span>
+          </div>
+        </li>
+      {% endunless %}
+      {% endfor %}
+  </ul>
+</nav>
+
+<script>
+    window.addEventListener("DOMContentLoaded", function() {
+        var form = document.getElementById("search-form");
+        document.getElementById("search-form-submit-icon").addEventListener("click", function() {
+            form.submit();
+        });
+        var phone_form = document.getElementsByClassName("phone-header-input-form");
+        document.getElementById("phone-ic-search").addEventListener("click", function() {
+            phone_form[0].submit();
+        });
+    });
+    var ic_search_close = document.getElementById("ic-search-close");
+    var search_box = document.getElementById("id-search-box");
+    var search_box_open_button = document.getElementById("id-search-box-open-button");
+    var ic_delete = document.getElementById("phone-ic-search-delete");
+    var phone_search_box = document.getElementsByClassName("phone-header-input");
+    var category_box = document.getElementById("header-submenu");
+    var media_query = window.matchMedia( "(max-width: 860px)" );
+
+    ic_search_close.onclick = function() {
+      search_box.style.display = "none";
+      search_box_open_button.style.display = "block";
+      category_box.style.transform = "translateX(-55%)";
+      return false;
+    };
+    search_box_open_button.onclick = function() {
+      search_box.style.display = "block";
+      search_box_open_button.style.display = "none";
+      if (media_query.matches) {
+        category_box.style.transform = "translateX(0%)";
+      }
+      else {
+        category_box.style.transform = "translateX(-35%)";
+      }
+    }
+    ic_delete.onclick = function() {
+      console.log("asdf");
+      phone_search_box[0].value = "";
+      ic_delete.style.display = "none";
+    }
+</script>

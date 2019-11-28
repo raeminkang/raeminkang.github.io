@@ -1,18 +1,36 @@
 {% if paginator.total_pages > 1 %}
 <div class="pagination">
-  <ul class="inline-list">
+  <ul class="pagination-inline-list">
     {% comment %} Link for previous page {% endcomment %}
     {% if paginator.previous_page %}
       {% if paginator.previous_page == 1 %}
-        <li><a href="{{ site.url }}/" class="btn">&laquo;</a></li>
+        <li class="paginator-page-outline">
+          <div class="page-outline">
+              <a href="{{ site.url }}/" class="pagination-btn">
+                <img class="pagination-icon" src="{{ site.url }}/{{ site.resource_dir }}/ic-backword-arrow.svg" alt="">
+              </a>
+          </div>
+        </li>
         <!-- <li><a href="{{ site.url }}/" class="btn">Previous</a></li> -->
       {% else %}
       <!-- KMEMO liquid plus / minus operator -->
         {% assign distance_prev = paginator.page | minus: 1 %}
         {% if distance_prev > 5 %}
-          <li><a href="{{ site.url }}/page{{ paginator.page | minus: 5 }}/" class="btn">&laquo;</a></li>
+          <li class="paginator-page-outline">
+            <div class="page-outline">
+                <a href="{{ site.url }}/page{{ paginator.page | minus: 5 }}/" class="pagination-btn">
+                  <img class="pagination-icon" src="{{ site.url }}/{{ site.resource_dir }}/ic-backword-arrow.svg" alt="">
+                </a>
+            </div>
+          </li>
         {% else %}
-          <li><a href="{{ site.url }}/" class="btn">&laquo;</a></li>
+          <li class="paginator-page-outline">
+              <div class="page-outline">
+                  <a href="{{ site.url }}/" class="btn">
+                    <img class="pagination-icon" src="{{ site.url }}/{{ site.resource_dir }}/ic-backword-arrow.svg" alt="">
+                  </a>
+              </div>
+          </li>
         {% endif %}
         <!-- <li><a href="{{ site.url }}/page{{ paginator.previous_page }}/" class="btn">Previous</a></li> -->
       {% endif %}
@@ -27,16 +45,68 @@
         {% break %}
       {% else %}
         {% if page_num == paginator.page %}
-          <li><strong class="current-page">{{ page_num }}</strong></li>
+          <li class="current-paginator-page-outline"> 
+            <div class="page-outline">
+              <div style="text-align: center;">
+                  <span>
+                      {{ page_num }}
+                  </span>
+              </div>
+            </div>
+          </li>
         {% else %}
           {% if page_num == 1 %}
-            <li><a href="{{ site.url }}/">{{ page_num }}</a></li>
+            <li class="paginator-page-outline">
+                <div class="page-outline">
+                  <div>
+                      <a href="{{ site.url }}/">
+                        {{ page_num }}
+                      </a>
+                  </div>
+                </div>
+            </li>
           {% else %}
-            <li><a href="{{ site.url }}/page{{ page_num }}">{{ page_num }}</a></li>
+            <li class="paginator-page-outline">
+                <div class="page-outline">
+                    <a href="{{ site.url }}/page{{ page_num }}">
+                      {{ page_num }}
+                    </a>
+                </div>
+            </li>
           {% endif %}
         {% endif %}
       {% endif %}
     {% endfor %}
+
+    {% comment %}
+      Link next page
+    {% endcomment %}
+    {% if paginator.next_page %}
+      <!-- <li><a href="{{ site.url }}/page{{ paginator.next_page }}/" class="btn">Next</a></li> -->
+      {% assign distance_next = paginator.total_pages | minus: paginator.page %}
+      {% if distance_next  > 5 %}
+        <li class="paginator-page-outline">
+            <div class="page-outline">
+                <a href="{{ site.url }}/page{{ paginator.page | plus: 5 }}/" class="pagination-btn">
+                  <img class="pagination-icon" src="{{ site.url }}/{{ site.resource_dir }}/ic-foreword-arrow.svg" alt="">
+                </a>
+            </div>
+        </li>
+      {% else %}
+        <li class="paginator-page-outline">
+          <div class="page-outline">
+            <div>
+                <a href="{{ site.url }}/page{{ paginator.total_pages }}/" class="pagination-btn">
+                  <img class="pagination-icon" src="{{ site.url }}/{{ site.resource_dir }}/ic-foreword-arrow.svg" alt="">
+                </a>
+            </div>
+          </div>
+        </li>
+      {% endif %}
+    {% endif %}
+  </ul>
+</div>
+{% endif %}
 
     <!-- {% comment %} First page {% endcomment %}
     {% if paginator.page == 1 %}
@@ -82,19 +152,3 @@
     {% else %}
       <li><a href="{{ site.url }}/page{{ paginator.total_pages }}/">{{ paginator.total_pages }}</a></li>
     {% endif %} -->
-
-    {% comment %}
-      Link next page
-    {% endcomment %}
-    {% if paginator.next_page %}
-      <!-- <li><a href="{{ site.url }}/page{{ paginator.next_page }}/" class="btn">Next</a></li> -->
-      {% assign distance_next = paginator.total_pages | minus: paginator.page %}
-      {% if distance_next  > 5 %}
-        <li><a href="{{ site.url }}/page{{ paginator.page | plus: 5 }}/" class="btn">&raquo;</a></li>
-      {% else %}
-        <li><a href="{{ site.url }}/page{{ paginator.total_pages }}/" class="btn">&raquo;</a></li>
-      {% endif %}
-    {% endif %}
-  </ul>
-</div>
-{% endif %}

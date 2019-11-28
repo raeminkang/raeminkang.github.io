@@ -1,159 +1,125 @@
-{% capture site_cats %}{% for cat in site.categories %}{{ cat | first | capitalize }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}{% assign cats_list = site_cats | split:',' | sort | uniq %}
-<div class="header-menu header-menu-top">
-    <ul class="header-item-container">
-      <li class="header-item-title header-toggle "><a href="#menu"><h2><i class="fa fa-bars"></i></h2></a></li>
-      <li class="header-item-title">
-        <a href="{{site.url}}/">
-          {% if site.logo %} 
-            <img class="logo" src="{{site.url}}/{{ site.logo }}" alt="{{ site.title }}">
-          {% endif %}
-          <a href="{{site.url}}/" class="title">{{ site.title }}</a>
-        </a>
-      </li>
-      {% for menu in site.menu reversed %}
-        {% assign class = nil %}
-        {% if ((page.url contains menu.url and menu.url != '/') or (page.url == '/index.html' and menu.url == '/')) %}
-          {% assign class = 'active' %}
-        {% endif %}
-        <!-- KMEMO menu ( tags / categories 등에 대한 설정 ) -->
-        {% if menu.type == 'categories' %}
-          <li class="header-item {{class}}"><a href="{{site.url}}{{menu.url}}"><h3>{{ menu.title }}</h3></a>
-            <ul class="header-submenu">
-              {% for item in (0..cats_list.size) %}{% unless forloop.last %}
-                {% capture this_word %}{{ cats_list[item] | strip_newlines }}{% endcapture %}
-                  {% assign downcase_word = this_word | downcase %}
-                  <li class="sub-item"><a href="{{site.url}}/category/{{downcase_word}}">{{this_word}}</a></li>
-              {% endunless %}{% endfor %}
-            </ul>
-          </li>
-        {% elsif menu.submenu %}
-          <li class="header-item {{class}}"><a href="{{site.url}}{{menu.url}}"><h3>{{ menu.title }}</h3></a>
-            <ul class="header-submenu">
-              {% for sub in menu.submenu %}
-                <li class="sub-item"><a href="{{site.url}}{{sub.url}}">{{sub.title}}</a></li>
-              {% endfor %}
-            </ul>
-          </li>
-        {% else %}
-            {% if menu.url contains 'http://' or menu.url contains 'https://' %}
-                <li class="header-item {{class}}"><a href="{{menu.url}}" target="_blank"><h3>{{ menu.title }}</h3></a></li>
-            {% else %}
-                <li class="header-item {{class}}"><a href="{{site.url}}{{menu.url}}"><h3>{{ menu.title }}</h3></a></li>
-            {% endif %}
-        {% endif %}
-      {% endfor %}
-      <li class="header-item" id="searchBtn" >
-        <a>
-          <h3>
-            <input class="searchInputBox" type="text" hint="Search..." id="search-input"/>
-            <i class="fa fa-search"></i>
-          </h3>
-        </a>
-      </li>
-    </ul>
-
-    <div tabindex="0" class="searchBox" id="search-box" style="display: none;">
-      <article>
-        <h3>Results:</h3>
-        <ul id="results-container" class="resultsContainer" style="color: black;">
-        </ul>
-      </article><!-- /.hentry -->
-    </div>
-</div>
-
 {% for all_authors in site.authors %}
-  {% if all_authors.name == page.name %}
-    {% assign author = all_authors %}
-  {% endif %}
+{% if all_authors.name == page.name %}
+{% assign author = all_authors %}
+{% endif %}
 {% endfor %}
 
 <!-- KMEMO upperImage -> 위의 이미지 -->
 <!-- KMEMO author별 백그라운드 이미지 삽입 경로 수정 할 때 -->
-<div {% if site.image and page.layout == 'post' or page.layout =='author' %}
-        style="display:none;"
-     {% else %}
-        class="entry-header"
-        style="background-image:url({{ site.image }});"
-     {% endif %}>
-  <div class="header-title">
-    <div class="header-title-wrap">
-      {% if page.layout == 'home' %}
-        <h1>{{ page.title }}</h1>
-        <h2></h2>
-        <p>{{ site.description | newline_to_br }}</p>
-        {% if page.date %}
-          <!-- page.date -->
-          <h2><span class="entry-date date published updated"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time></span></h2>
-        {% else %}
-          <!-- page.date not -->
-          <!-- <h2><span class="entry-date"><time>&nbsp;</time></span></h2> -->
-        {% endif %}
-      {% elsif page.layout == 'post' %}
-        <h1>{{ page.title }}</h1>
-        {% if page.date %}
-          <!-- page.date -->
-          <h2><span class="entry-date date published updated"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time></span></h2>
-        {% else %}
-          <!-- page.date not -->
-          <h2><span class="entry-date"><time>&nbsp;</time></span></h2>
-        {% endif %}
-        {% if site.reading_time %}
-          <p class="entry-reading-time">
-            <i class="fa fa-clock-o"></i>
-            {% assign readtime = content | strip_html | number_of_words | divided_by:site.words_per_minute %}
-            Reading time ~{% if readtime <= 1 %}1 minute{% else %}{{ readtime }} minutes{% endif %}
-          </p><!-- /.entry-reading-time -->
-        {% endif %}
-      {% elsif page.layout == 'tag' %}
-      <!-- KMEMO tag 이름 변경 -->
-        {% assign tag_name = page.name | replace:".html","" | replace:"-"," " | capitalize %}
-        <h1>Tag : {{ tag_name }}</h1>
-        <h2></h2>
-        <p>{{ page.description | newline_to_br }}</p>
-        {% if page.date %}
-          <!-- page.date -->
-          <h2><span class="entry-date date published updated"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time></span></h2>
-        {% else %}
-          <!-- page.date not -->
-          <!-- <h2><span class="entry-date"><time>&nbsp;</time></span></h2> -->
-        {% endif %}
-      {% elsif page.layout == 'category' %}
-        <h1>Category : {{ page.name }}</h1>
-        <h2></h2>
-        <p>{{ page.description | newline_to_br }}</p>
-        {% if page.date %}
-          <!-- page.date -->
-          <h2><span class="entry-date date published updated"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time></span></h2>
-        {% else %}
-          <!-- page.date not -->
-          <!-- <h2><span class="entry-date"><time>&nbsp;</time></span></h2> -->
-        {% endif %}
-      {% endif %}
-
-      <!-- <p class="entry-reading-time">
-        &nbsp;
-      </p><!-- /.entry-reading-time -->
-
-    </div><!-- /.header-title-wrap -->
+<div 
+  {% if page.layout == 'tag' or page.layout == 'category' or page.layout == 'search' %} 
+    class="entry-header-meta"
+  {% elsif page.layout == 'home' %}
+    class="entry-header-home" 
+  {% elsif page.layout == 'author' %}
+    class="entry-header-author" 
+  {% endif %}>
+  {% include header-menu-top.html %}
+  <div 
+      {% if page.layout == 'tag' or page.layout == 'category' or page.layout == 'search' %} 
+        class = "header-title header-archive"
+      {% elsif page.layout == 'author' %}
+        class = "header-title header-author"
+      {% else %}
+        class = "header-title"
+      {% endif %}>
+    {% if page.layout == 'home' %}
+    <div class="header-title-wrap-outline">
+        <div class="header-title-wrap">
+            <ul class="header-title-wrap-ul">
+              {% if site.recruit_mode %}
+                <p class="header-title-description">{{ site.description_recruit | newline_to_br }}</p>
+              {% else %}
+                <p class="header-title-description">{{ site.description | newline_to_br }}</p>
+              {% endif %}
+              <div id="button-hover-div" 
+                      {% if site.recruit_mode %}
+                        class="button-hover-div"
+                      {% else %}
+                        class="button-hover-div recruit-hidden"
+                      {% endif %}>
+                  <button {% if site.recruit_mode %}
+                            class="recruit-button" 
+                          {% else %} 
+                            class="recruit-button recruit-hidden"
+                          {% endif %} id="recruit-button" type="button" name="button" onclick="location.href = '{{ site.recruit_url }}' ">
+                    <div class="recruit-button-inline">
+                      <span class="recruit-button-text">진행중인 채용</span>
+                      <img id="recruit-button-arrow" class="recruit-button-img" src="{{site.url}}/{{ site.resource_dir }}/ic-arrow.svg" alt="">
+                    </div>
+                  </button>
+              </div>
+            </ul>
+            {% if site.recruit_mode %}
+              <img class="img-main recruit-main-img" src="{{site.url}}/assets/images/resource/img-main-recruit-on.png" />
+            {% else %}
+              <img class="img-main" />
+            {% endif %}
+          </div><!-- /.header-title-wrap -->
+    </div>
+    {% elsif page.layout == 'tag' or page.layout == 'category' or page.layout == 'search' %}
+    <div class="header-title-wrap-tag-outline">
+      <div class="header-title-wrap-tag">
+        <ul class="header-title-wrap-tag-inline">
+          {% if page.layout == 'tag' %}
+            {% assign tag_name = page.name | replace:".html","" | replace:"-"," " | capitalize %}
+            <span class="meta-title">Tag : {{ tag_name }}</span>
+            <!-- <p>{{ page.description | newline_to_br }}</p> -->
+          {% elsif page.layout == 'category' %}
+            <span class="meta-title">Category : {{ page.name }}</span>
+          {% elsif page.layout == 'search' %}
+            <span id="user-input-text" class="meta-title">검색어 입력 완료</span><span id="user-input-text-sub" class="meta-title-result">에 대한 결과</span>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+    {% elsif page.layout == 'author' %}
+    <div class="header-title-wrap-author-outline">
+      <div class="header-title-wrap-author">
+        <div class="header-title-wrap-author-inline">
+          <div class="header-author-detail">
+            <div>
+              <img class="header-author-img" src="{{site.url}}/images/authors/{{author.name}}/{{author.profileImage}}" alt="{{author.name}}" />
+            </div>
+            <div class="header-author-detail-inline" >
+              <span class="header-author-name">{{author.name}}</span>
+              <p style="margin: 0px; margin-top: -7px;"><span class="header-author-position">{{author.position}}</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
   </div><!-- /.header-title -->
 </div><!-- /.entry-header -->
 
 
-<nav id="menu" style="display: none">
+<nav id="menu" style="display: none; min-width: 100%;">
   <ul>
     {% for menu in site.menu %}
       {% if menu.type == 'categories' %}
-        <li><a href="{{site.url}}{{menu.url}}"><h3>{{ menu.title }}</h3></a>
+        <li>
+          <a href="{{site.url}}{{menu.url}}">
+            {% for item in (0..cats_list.size) %}{% unless forloop.last %}
+            {% capture this_word %}{{ cats_list[item] | strip_newlines }}{% endcapture %}
+            {% assign downcase_word = this_word | downcase %}
+            <h3><a href="{{site.url}}/category/{{downcase_word}}">{{this_word}}</a></h3>
+            {% endunless %}{% endfor %}
+            <h3>{{ menu.title }}</h3>
+          </a>
           <ul>
             {% for item in (0..cats_list.size) %}{% unless forloop.last %}
-              {% capture this_word %}{{ cats_list[item] | strip_newlines }}{% endcapture %}
-                {% assign downcase_word = this_word | downcase %}
-                <li><a href="{{site.url}}/category/{{downcase_word}}">{{this_word}}</a></li>
+            {% capture this_word %}{{ cats_list[item] | strip_newlines }}{% endcapture %}
+            {% assign downcase_word = this_word | downcase %}
+            <li><a href="{{site.url}}/category/{{downcase_word}}">{{this_word}}</a></li>
             {% endunless %}{% endfor %}
           </ul>
         </li>
       {% elsif menu.submenu %}
-        <li><a href="{{site.url}}{{menu.url}}"><h3>{{ menu.title }}</h3></a>
+        <li>
+          <a href="{{site.url}}{{menu.url}}">
+            <h3>{{ menu.title }}</h3>
+          </a>
           <ul>
             {% for sub in menu.submenu %}
               <li><a href="{{site.url}}{{sub.url}}">{{sub.title}}</a></li>
@@ -161,25 +127,17 @@
           </ul>
         </li>
       {% else %}
-        <li><a href="{{site.url}}{{menu.url}}"><h3>{{ menu.title }}</h3></a></li>
+        <li>
+          <a href="{{site.url}}{{menu.url}}">
+            <h3>{{ menu.title }}</h3>
+          </a>
+        </li>
       {% endif %}
     {% endfor %}
   </ul>
 </nav>
 
 {% if site.owner.twitter %}
-  <a href="https://twitter.com/{{site.owner.twitter}}" class="btn btn-info button-twitter" data-show-count="false" data-size="large"><i class="fa fa-twitter"></i> <span> | Follow @{{site.owner.twitter}}</span></a>
+<a href="https://twitter.com/{{site.owner.twitter}}" class="btn btn-info button-twitter" data-show-count="false"
+  data-size="large"><i class="fa fa-twitter"></i> <span> | Follow @{{site.owner.twitter}}</span></a>
 {% endif %}
-
-
-<script type="text/javascript">
-
-  window.onload = function(){
-    new SimpleJekyllSearch({
-      searchInput: document.getElementById('search-input'),
-      resultsContainer: document.getElementById('results-container'),
-      json: '{{site.url}}/search.json',
-      searchResultTemplate: {% include searchResult.html %}
-    });
-  }
-</script>

@@ -22,11 +22,15 @@ body {
 $base-color				 : rgba(#222,0.8);
 $header-color			 : rgba(#000,0.8);
 $sub-item-color			 : rgba(#000, 0.1);
+$category-top-color : #7EA7FD;
 $header-margin			 : #F45145;
-$menu-top				 : white;
+$menu-top				 : transparent;
+$menu-category-bg : #FFFFFF;
 $menu-height			 : 70px;
+$logo-width : 64px;
+$logo-height : 30px;
 $menu-overflow			 : #2E2E2E;
-$body-color      		 : #e8e8e8;
+$body-color      		 : #f7f8fa;
 $text-color      		 : rgba(#222,0.8);
 $comp-color 	 		 : complement(#222);
 $border-color    		 : lighten(#222,60);
@@ -46,13 +50,21 @@ $height_adImage_large: 130px;
 
 $main_max_width: 800px;
 
+$phone_header_menu_height: 55px;
+$phone_padding_main: 0 16px; 
+$phone_header_height: 250px; 
+$phone_padding_index_post: 24px 15px 0px 15px;
+
 // Screen Size
 // --------------------------------------------------
 
 // KMEMO min-width가 x px 일 때 보여라 ( 보통 랩탑이 1000px 넘으니 large에 속함 )
-$small               : "only screen and (min-width: 480px)";
+$small               : "only screen and (max-width: 600px)";
 $medium              : "only screen and (min-width: 768px)";
-$large               : "only screen and (min-width: 1000px)";
+$large               : "only screen and (min-width: 860px)";
+
 
 $response_border_min : "only screen and (min-width: 768px)";
 $response_border_max : "only screen and (max-width: 768px)";
+
+$site_url : "localhost:4001/";

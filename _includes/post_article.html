@@ -2,35 +2,28 @@
   <div class="hentry_text">
     <header>
       {% for all_authors in site.authors %}
-      {% if post.author %}
-      {% if all_authors.name == post.author %}
-      {% assign author = all_authors %}
-      {% endif %}
-      {% else %}
-      {% assign author = false %}
-      {% endif %}
+        {% if post.author %}
+          {% if all_authors.name == post.author %}
+            {% assign author = all_authors %}
+          {% endif %}
+        {% else %}
+          {% assign author = false %}
+        {% endif %}
       {% endfor %}
       <div class="entry-meta">
         <span class="entry-date date published updated">
-          <time datetime="{{ post.date | date_to_xmlschema }}">
-            <a href="{{ site.url }}{{ post.url }}">{{ post.date | date: "%B %d, %Y" }}</a>
+          <time datetime="{{ post.date | date_to_xmlschema }}" class="index-datetime">
+            <a href="{{ site.url }}{{ post.url }}">{{ post.date | date: "%Y.%m.%d" }}</a>
           </time>
         </span>
-        {% if site.reading_time %}
-        <span class="entry-reading-time">
-          <i class="fa fa-clock-o"></i>
-          {% assign readtime = post.content | strip_html | number_of_words | divided_by:site.words_per_minute %}
-          Reading time ~{% if readtime <= 1 %}1 minute{% else %}{{ readtime }} minutes{% endif %}
-        </span><!-- /.entry-reading-time -->
-        {% endif %}
       </div><!-- /.entry-meta -->
       {% if post.link %}
-      <h1 class="entry-title"><a href="{{ site.url }}{{ post.url }}" class="permalink" rel="bookmark" title="{{ post.title }}"><i class="fa fa-bookmark"></i></a> <a href="{{ post.link }}">{{ post.title }}</a></h1>
+        <h1 class="entry-title"><a href="{{ site.url }}{{ post.url }}" class="permalink" rel="bookmark" title="{{ post.title }}"><i class="fa fa-bookmark"></i></a> <a href="{{ post.link }}">{{ post.title }}</a></h1>
       {% else %}
-      <h1 class="entry-title"><a href="{{ site.url }}{{ post.url }}" rel="bookmark" title="{{ post.title }}" itemprop="url">{{ post.title }}</a></h1>
+        <h1 class="entry-title"><a href="{{ site.url }}{{ post.url }}" rel="bookmark" title="{{ post.title }}" itemprop="url">{{ post.title }}</a></h1>
       {% endif %}
     </header>
-    <div class="entry-content">
+    <div class="article entry-content">
       {{ post.content | strip_html | truncatewords: 40 }}
       {% if post.content contains "<!-- more -->" %}
       <div align="center">
@@ -40,10 +33,5 @@
     </div><!-- /.entry-content -->
     {% include index_tagging.html %}
   </div>
-  <div class="list_author" style="text-align: center;">
-    <a href="{{ site.url }}/authors/{{ author.name }}" style="text-align: center;">
-      <img src="{{ site.url }}/images/authors/{{ author.name }}/{{ author.profileImage }}" class="author-img small" alt="">
-      <p class="author_nickname">{{ author.nickname }}</p>
-    </a>
-  </div>
+  {% include author-profile-small.html %}
 </article><!-- /.hentry -->

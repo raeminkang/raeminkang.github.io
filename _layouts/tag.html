@@ -2,6 +2,18 @@
 layout: home
 title: tag
 ---
+{% assign total_tag_num = 0 %}
+{% for post in site.posts %}
+  {% assign post_tags_name = post.tags | downcase %}
+  {% assign search_tag_name = page.name | downcase | replace:"-", " " %}
+  {% if post_tags_name contains search_tag_name %}
+    {% assign total_tag_num = total_tag_num | plus: 1 %}
+  {% endif %}
+{% endfor %}
+
+<div style="margin-bottom:20px;">
+  <span class="total_meta_num">전체 {{ total_tag_num }}</span>
+</div>
 
 <!-- KMEMO page.name -> _tags/태그명.md 파일에 들어있는 name 변수 -->
 {% for post in site.posts %}
@@ -11,5 +23,3 @@ title: tag
     {% include post_article.html %}
   {% endif %}
 {% endfor %}
-
-<!-- {% include pagination.html %} -->

@@ -95,7 +95,7 @@ li.mm-vertical.mm-opened > .mm-panel {
   bottom: auto; }
   .mm-vertical .mm-listview > li > .mm-next:after,
   .mm-listview > li.mm-vertical > .mm-next:after {
-    top: 16px;
+    /* top: 16px; */
     bottom: auto; }
 .mm-vertical .mm-listview > li.mm-opened > .mm-next:after,
 .mm-listview > li.mm-vertical.mm-opened > .mm-next:after {

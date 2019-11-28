@@ -48,6 +48,72 @@
 		display: inline;
 	}
 }
+.pagination-inline-list {
+  display: table;
+  list-style: none;
+  margin: 0 auto;
+  border-spacing: 4px;
+  padding-left: 0;
+  li {
+    vertical-align: middle;
+    list-style-type: none;
+    display: table-cell;
+    a {
+      
+      font-size: 16px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      letter-spacing: -0.24px;
+      text-align: center;
+      color: #7ea7fd;
+
+      @media #{$small} {
+        font-size: 12px;
+      }
+    }
+    span {
+      
+      font-size: 16px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      letter-spacing: -0.24px;
+      text-align: center;
+      color: #7ea7fd;
+      
+      @media #{$small} {
+        font-size: 12px;
+      }
+    }
+	}
+}
+
+.pagination-icon {
+  margin-bottom: 1.7px;
+  vertical-align: baseline;
+}
+
+.paginator-page-outline {
+	width: 36px;
+  height: 36px;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+}
+
+.current-paginator-page-outline {
+	width: 36px;
+  height: 36px;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+  background-color: rgba(126, 167, 253, 0.1);
+}
+.page-outline {
+  width: 10px;
+  margin: 0 auto;
+}
 
 // Global Transition
 // ---------------------------------------------------
