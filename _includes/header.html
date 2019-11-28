@@ -145,14 +145,14 @@
 <script type="text/javascript">
   var recruit_button = document.getElementById("recruit-button");
   var recruit_button_arrow = document.getElementById("recruit-button-arrow");
-  recruit_button.onmouseleave = function() {
-    console.log("mouseleave");
-    recruit_button_arrow.style.transform = "translateX(0px)";
-    recruit_button.style.opacity = "1";
-  }
-  recruit_button.onmouseenter = function() {
-    console.log("mouseenter");
-    recruit_button_arrow.style.transform = "translateX(4px)";
-    recruit_button.style.opacity = "0.9";
+  if (recruit_button != null) {
+    recruit_button.onmouseleave = function() {
+      recruit_button_arrow.style.transform = "translateX(0px)";
+      recruit_button.style.opacity = "1";
+    }
+    recruit_button.onmouseenter = function() {
+      recruit_button_arrow.style.transform = "translateX(4px)";
+      recruit_button.style.opacity = "0.9";
+    }
   }
 </script>
