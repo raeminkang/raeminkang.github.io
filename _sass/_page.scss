@@ -323,7 +323,9 @@ header .entry-meta {
     width: 100%;
   }
 }
-
+.current-page { 
+  width: auto;
+}
 .current-page-num {
   @media #{$small} {
     font-size: 12px;
