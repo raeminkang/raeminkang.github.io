@@ -8,3 +8,4 @@ Gemfile.lock
 .sass-cache
 *.gem
 dummy
+not_uglify_js

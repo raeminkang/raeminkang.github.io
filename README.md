@@ -48,7 +48,7 @@ author: raemin
 ### author
 작성자를 적는 공간입니다. _authors 폴더에 있는 자신의 정보가 담긴 md 파일에 적혀있는 name을 적어주시면 됩니다.  
 
-게시글 본문에 대한 구체적인 내용은 [링크](https://raeminkang.github.io/intro/2019/08/22/md-%ED%8C%8C%EC%9D%BC-%EB%AC%B8%EB%B2%95.html)를 참조 해주세요. 
+게시글 내용을 구성하는 방법에 대한 구체적인 내용은 [링크](https://raeminkang.github.io/intro/2019/08/22/md-%ED%8C%8C%EC%9D%BC-%EB%AC%B8%EB%B2%95.html)를 참조 해주세요. 
 
 ### post 저장 시 Naming Rule ( md파일 저장 폴더 위치 : `_post` )  
 저장하실떄의 형식은 포스팅 될 날짜( yyyy-MM-dd 형식 )-제목.md 입니다. 띄어쓰기가 들어 갈 경우엔 "-"를 사용해주시면 됩니다.  
