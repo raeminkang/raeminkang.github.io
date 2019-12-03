@@ -5,8 +5,6 @@ body {
 	background-color: $body-color;
 	overflow-x: hidden;
 }
-// Main
-// --------------------------------------------------
 
 .entry-title {
   margin-bottom: 0;
@@ -35,9 +33,6 @@ body {
 	li,
 	p {
 		word-wrap: break-word;
-	}
-	@media #{$response_border_min} {
-		// display: flex;
 	}
 
 	.hentry_text {
@@ -103,7 +98,6 @@ body {
   @media #{$small} {
     @include font-rem(12.5);
   }
-	// Dotted line underlines for links
 	li > a,
 	p > a {
 		border-bottom: 1px dotted lighten($link-color, 50);
@@ -113,7 +107,6 @@ body {
 		}
 	}
 }
-///sections
 
 .content-header-title {
 	text-align: center;
@@ -146,7 +139,6 @@ body {
 		color: lighten($base-color,20);
 	}
 }
-// Feature Image Caption
 
 .image-credit {
 	position: absolute;
@@ -173,8 +165,6 @@ body {
 		text-decoration: none;
 	}
 }
-// Single Post and Page
-// --------------------------------------------------
 
 .entry-index-tag {
 	margin-top: 12px;
@@ -188,12 +178,6 @@ body {
 
 	a {
 		color: lighten($base-color,60);
-	}
-
-	.vcard {
-		&:before {
-			// content: " by ";
-		}
 	}
 
 	.tag {
@@ -229,7 +213,6 @@ body {
 }
 
 header .entry-meta {
-	// hide header meta on small screens
 	@media #{$medium} {
 		display: block;
 	}
@@ -298,7 +281,6 @@ header .entry-meta {
 .year-heading {
 	margin-top: 0;
 }
-// Go to the exact location of bookmarks in tags, categories
 
 .anchor-bookmark {
 	display: block;
@@ -308,12 +290,10 @@ header .entry-meta {
 	/*same height as header*/
 	visibility: hidden;
 }
-// Permalink icon for link post
 
 .permalink {
 	margin-right: 7px;
 }
-// Post Pagination Module
 
 .pagination {
   display: table;
@@ -331,7 +311,6 @@ header .entry-meta {
     font-size: 12px;
   }
 }
-// Read More Module
 
 .read-more {
 	position: relative;
@@ -367,7 +346,6 @@ header .entry-meta {
 
 .read-more-content {
 	@include font-size(16);
-	// Dotted line underlines for links
 	li > a,
 	p > a {
 		border-bottom: 1px dotted lighten($link-color, 50);
@@ -669,8 +647,6 @@ ul.social-buttons li a:hover {
 		}
 	}
 }
-// Post Index
-// --------------------------------------------------
 
 #post-index {
 	#main {
@@ -701,8 +677,6 @@ ul.social-buttons li a:hover {
 		}
 		@media #{$large} {
 			margin-bottom: 30px;
-			// padding: 40px 170px 40px 40px;
-			// padding: 50px 80px;
 		}
 	}
 }
@@ -865,7 +839,6 @@ ul.social-buttons li a:hover {
 		min-height: $height_adImage_small;
 	}
 	@media #{$response_border_min} {
-		// KMEMO Max length를 main과 같이 줌
 		margin-left: auto;
 		margin-right: auto;
 		max-width: $main_max_width;
@@ -898,8 +871,6 @@ ul.social-buttons li a:hover {
 		margin: -50px -80px 20px;
 	}
 }
-// Footer
-// --------------------------------------------------
 
 .footer-wrapper {
 	@include clearfix;
@@ -911,8 +882,6 @@ ul.social-buttons li a:hover {
 		color: lighten($text-color,20);
 	}
 }
-// Social Share
-// --------------------------------------------------
 
 .socialcount {
 	@include font-rem(16);
@@ -927,8 +896,6 @@ ul.social-buttons li a:hover {
 		border-bottom-width: 0;
 	}
 }
-// Browser Upgrade
-// --------------------------------------------------
 .prev {
 	
 	font-size: 12px;
@@ -963,8 +930,6 @@ ul.social-buttons li a:hover {
 	padding: 10px;
 	text-align: center;
 }
-// Google Search
-// --------------------------------------------------
 
 #goog-fixurl {
 	ul {
@@ -996,21 +961,12 @@ ul.social-buttons li a:hover {
 #goog-wm-sb {
 	@extend .btn;
 }
-// Header
-// --------------------------------------------------
 
 .entry-header-meta {
-	// margin-top: $menu-height;//KMEMO
 	width: 100%;
 	position: relative;
 	height: 100%;
-	// KMEMO 반복 없애기
 	background-color: white;
-	// height: 50px;
-	// @media #{$small} {
-	// 	min-height: 170px;
-	// }
-  // 768px 이하는 170px / 아니면 300px ( 최소 )
   min-height: 230px;
   @media #{$small} {
     min-height: 155px;
@@ -1021,19 +977,11 @@ ul.social-buttons li a:hover {
 }
 
 .entry-header-author {
-	// margin-top: $menu-height;//KMEMO
 	width: 100%;
 	position: relative;
   height: 100%;
   min-height: 250px;
-	// KMEMO 반복 없애기
-	// opacity: 0.7;
 	background-color: white;
-	// height: 50px;
-	// @media #{$small} {
-	// 	min-height: 170px;
-	// }
-  // 768px 이하는 170px / 아니면 300px ( 최소 )
   @media #{$small} {
     min-height: 175px;
   }
@@ -1101,19 +1049,12 @@ ul.social-buttons li a:hover {
 }
 
 .entry-header-home {
-	// margin-top: $menu-height;//KMEMO
 	width: 100%;
 	position: relative;
 	height: 100%;
-	// KMEMO 반복 없애기
 	background: no-repeat center;
 	background-size: cover;
 	background-image: linear-gradient(101deg, #041c82 -7%, #041c82 -4%, #00122b 69%, #2b1993 110%);
-	// height: 50px;
-	// @media #{$small} {
-	// 	min-height: 170px;
-	// }
-	// 768px 이하는 170px / 아니면 300px ( 최소 )
   min-height: 380px;
   @media #{$small} {
     min-height: $phone_header_height;
@@ -1125,15 +1066,8 @@ ul.social-buttons li a:hover {
 	overflow: hidden;
 	position: relative;
 	overflow: hidden;
-	// KMEMO 반복 없애기
 	background: no-repeat center;
 	background-size: cover;
-	// height: 50px;
-	// @media #{$small} {
-	// 	background-color: $header-color;
-	// 	min-height: 170px;
-	// }
-	// 768px 이하는 170px / 아니면 300px ( 최소 )
 	@media #{$response_border_max} {
 		background-color: $header-color;
 		min-height: 170px;
@@ -1266,7 +1200,6 @@ ul.social-buttons li a:hover {
 
 .header-menu {
 	display: block;
-	// sticky !!!!
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -1294,8 +1227,6 @@ ul.social-buttons li a:hover {
 
 .header-menu-top {
 	background-color: $menu-top;
-	// KMEMO box-shadow
-	// box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.4);
 }
 
 .header-menu-overflow {
@@ -1307,7 +1238,6 @@ ul.social-buttons li a:hover {
 	@media #{$large} {
 		box-shadow: 0 2px 10px 0 rgba(17, 20, 24, 0.16);
 	}
-	// box-shadow: 0 6px 5px rgba(0, 0, 0, 0.4);
 }
 
 .header-menu-top .searchInputBox {
@@ -1331,9 +1261,6 @@ ul.social-buttons li a:hover {
 	background-color: $menu-category-bg;
 }
 
-.header-menu-overflow .sub-item {
-	// background-color: $menu-overflow;
-}
 .header-input-form {
   display: table-cell;
   vertical-align: middle;
@@ -1451,7 +1378,6 @@ ul.social-buttons li a:hover {
   padding-left: 30px;
   
   @media #{$small} {
-    // padding-left: 16px;
     height: 120px;
     width: 100%;
   }
@@ -1565,8 +1491,6 @@ ul.social-buttons li a:hover {
 .header-item-title {
 	float: right;
 	border-top-color: transparent;
-	// border-top-style: solid;
-	// border-top-width: 5px;
 	box-sizing: border-box;
 
 	a {
@@ -1579,7 +1503,6 @@ ul.social-buttons li a:hover {
     }
 	}
 }
-///sections
 
 .logo {
   height: 42px;
@@ -1619,11 +1542,6 @@ ul.social-buttons li a:hover {
 		opacity: 0.8;
 		font-size: 14px;
 		line-height: 1.2;
-		// font-size: 1.5rem;
-		// padding-left: 5px;
-		// display: none;
-		// vertical-align: middle;
-    // height: $menu-height - 2;
     @media #{$small} {
       padding-top: 0px;
       font-size: 8px;
@@ -1774,11 +1692,6 @@ ul.social-buttons li a:hover {
   }
 }
 
-.header-item.active,
-.header-item:hover {
-	// border-top-color: $header-margin;
-}
-
 .header-item:hover .header-submenu {
 	display: block;
 	position: absolute;
@@ -1787,7 +1700,6 @@ ul.social-buttons li a:hover {
 .header-submenu {
   padding: 0px !important;
 	display: none;
-	// box-shadow: 0px 2px 4px 0 rgba(0, 0, 0, 0.2);
 	border-top: 3px solid $category-top-color;
 	width: 200px;
 	z-index: 100;
@@ -1807,8 +1719,6 @@ ul.social-buttons li a:hover {
 	position: relative;
 	padding-left: 10px;
 	width: 100%;
-	// border-bottom: 1px solid gray;
-	// border-left: 1px solid;
 	height: 50px;
 	text-decoration: none;
 }

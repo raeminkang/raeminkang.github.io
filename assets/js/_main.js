@@ -99,7 +99,6 @@ $(document).ready(function(){
     ]
   });
 });
-// KMEMO linkedin / twitter 없앰
 var sharing = function(){
     $(document).ready(function(){
       $("body").floatingSocialShare({

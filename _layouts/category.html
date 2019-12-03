@@ -16,7 +16,6 @@ title: categories
   <span class="total_meta_num">전체 {{ total_category_num }}</span>
 </div>
 
-<!-- KMEMO page.name -> _tags/태그명.md 파일에 들어있는 name 변수 -->
 {% for post in site.posts %}
   {% assign post_category_name = post.categories | downcase %}
   {% assign search_category_name = page.name | downcase %}

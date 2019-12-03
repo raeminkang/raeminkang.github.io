@@ -79,7 +79,7 @@ defaults:
       type: tags
     values:
       layout: tag
-# KMEMO collection dir name must start "_"
+# collection dir name must start "_"
 # Background image to be tiled on all pages
 background:
 

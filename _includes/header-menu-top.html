@@ -100,7 +100,6 @@
         {% if ((page.url contains menu.url and menu.url != '/') or (page.url == '/index.html' and menu.url == '/')) %}
           {% assign class = 'active' %} 
         {% endif %}
-        <!-- KMEMO menu ( tags / categories 등에 대한 설정 ) -->
         {% if menu.type == 'categories' %}
         <li class="header-item category">
             <a onclick="return false" href="{{site.url}}{{menu.url}}" class="navi-category">{{ menu.title }}</a>
