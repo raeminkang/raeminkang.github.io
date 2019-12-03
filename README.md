@@ -1,6 +1,6 @@
 ## YAML 이란
 
-.md 파일의 구조는 다음과 같은 구조를 가지고 있습니다. ( [Markdown에 대한 설명](http://https://raeminkang.github.io/intro/2019/08/22/md-%ED%8C%8C%EC%9D%BC-%EB%AC%B8%EB%B2%95.html) )
+.md 파일의 구조는 다음과 같은 구조를 가지고 있습니다. ( [Markdown에 대한 설명](https://raeminkang.github.io/intro/2019/08/22/md-%ED%8C%8C%EC%9D%BC-%EB%AC%B8%EB%B2%95.html) )
 
 ```shell
 ---
