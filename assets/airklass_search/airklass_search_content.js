@@ -120,7 +120,7 @@ var airklasssearch = {"pages": [
     </div>
     <div class="list-author-index">
       <a href="{{ site.url }}/authors/{{ author.name }}" style="text-align: center;">
-        <img src="{{ site.url }}/images/authors/{{ author.name }}/{{ author.profileImage }}" class="author-img-index" alt="">
+        <img src="{{ site.url }}/assets/images/authors/{{ author.profileImage }}" class="author-img-index" alt="">
         <span class="author-nickname-index">{{ author.name }}</span>
       </a>
     </div>
