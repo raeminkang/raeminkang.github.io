@@ -1,3 +1,18 @@
+### 설치 및 실행 (로컬)
+
+[Jekyll]: https://jekyllrb.com
+
+1. [Jekyll] 설치
+2. git pull ( repo link : https://github.com/quriously/quriously.github.io )
+3. pull 받은 폴더로 이동 
+4. bundle install 
+5. bundle exec jekyll serve 
+6. open http://localhost:4001
+
+### 배포
+
+github repo ( repo link : https://github.com/quriously/quriously.github.io )에 push  
+
 ## YAML 이란
 
 .md 파일의 구조는 다음과 같은 구조를 가지고 있습니다. ( [Markdown에 대한 설명](https://raeminkang.github.io/intro/2019/08/22/md-%ED%8C%8C%EC%9D%BC-%EB%AC%B8%EB%B2%95.html) )
@@ -35,6 +50,11 @@ YAML이란, 데이터 정렬 양식 중에 하나입니다. 데이터에 데이�
 
 ***
 
+## 공통  
+
+아래의 규칙들은 md파일을 생성 하신 후 md파일을 작성하실때의 규칙들입니다.  
+규칙에 따라 파일을 생성 하신 뒤 규칙에 서술된 위치에 파일을 저장해주시면 됩니다. 
+
 ## post에 글을 쓸 때 ( 기술 블로그에 게시글을 작성 할 때 )
 
 ```shell
@@ -44,7 +64,6 @@ title: post에 글쓰기
 tags: [글쓰기 대장]
 categories: Intro
 author: raemin
-image: youtube-sample/homer.jpg
 ---
 ```
 
@@ -60,37 +79,26 @@ image: youtube-sample/homer.jpg
 ### categories
 해당 글이 포함될 카테고리를 적는 항목입니다.
 카테고리는 제한적이며 카테고리 항목은 _category 폴더에서 확인 할 수 있습니다.   
-반드시 해당 카테고리 중 하나를 선택 해 주세요, 없다면 생성 해 줄 수 있습니다.    
+반드시 카테고리 중 하나를 선택 해 주세요.
 카테고리를 선택하지 않으시면 카테고리끼리 모아놓은 곳에서 해당 글을 볼 수 없습니다.  
-카테고리 명은 파일명과 반드시 일치시켜 주세요.  
-카테고리 항목을 생성하는 방법은 [여기](#Category)에 서술되어 있습니다.  
 
 ### author
-작성자를 적는 공간입니다. _authors 폴더에 있는 자신의 정보가 담긴 md 파일에 적혀있는 name을 적어주시면 됩니다. [참고] (#author)  
+작성자를 적는 공간입니다. _authors 폴더에 있는 자신의 정보가 담긴 md 파일에 적혀있는 name을 적어주시면 됩니다.
 
-### image
-게시글 상단에 보일 이미지 파일을 적어주는 공간입니다.  
-입력하지 않으시면 기본 이미지가 들어가게 됩니다.  
-반드시 ( 해당 파일의 날짜 제외 이름을 가진 폴더 )에 이미지를 생성 해 주세요. 폴더가 없다면 폴더를 생성 해주시면 됩니다.  
-ex_ 2019-07-30-youtube-sample.md 파일에서는 ( youtube-sample )이라는 폴더에 이미지가 들어가 있어야 합니다.
-
-### 글 저장 시 Naming Rule ( 저장 폴더 위치 : _post )
+### post 저장 시 Naming Rule ( md파일 저장 폴더 위치 : `_post` )  
 저장하실떄의 형식은 포스팅 될 날짜( yyyy-MM-dd 형식 )-제목.md 입니다. 띄어쓰기가 들어 갈 경우엔 "-"를 사용해주시면 됩니다.  
 ( ex_ yyyy-MM-dd-제목을-띄어쓰기할땐-이렇게요.md )
 
-_post_ 폴더에 저장 해주시면 됩니다.
+`_post` 폴더에 저장 해주시면 됩니다.
 
 ***
 
-## author을 추가 하기 {#author}
+## author을 추가 하기
 
 ```shell
 ---
 name: IceBear
-nickname: Alonzo
 profileImage: polarbear.png
-bio: 아이스베어 소개소개
-cover: polarbear.png
 position: 마케팅
 ---
 ```
@@ -98,70 +106,48 @@ position: 마케팅
 ### name
 이름을 적는 항목입니다.
 
-### nickname
-별명을 적는 항목입니다.  
-
 ### profileImage
-작성자의 프로필 사진 항목입니다.
-
-images/authors 폴더에 반드시 폴더명을 (name에 적으셨던 이름)으로 생성 해 주셔야 합니다. 그렇지 않으면 제대로 프로필이 표시되지 않습니다.  
-위에서 생성한 (name에 적으셨던 이름)폴더에 프로필로 사용하실 이미지를 넣습니다.    
+작성자의 프로필 사진 항목입니다.  
+assets/authors 폴더에 반드시 사용하실 이미지를 (name에 적으셨던 이름)으로 생성 해 주셔야 합니다.  
 이미지를 넣으신 후에 profileImage 옆에 확장자를 포함하여 이미지의 파일 이름을 적어 주시면 됩니다.  
-
-### bio
-간단한 자기소개를 적는 항목입니다.
-
-### cover
-현재는 사용하지 않으니 안적으셔도 됩니다
 
 ### position
 직무를 적으시면 됩니다.
 
-### author 저장 시 Naming Rule ( 저장 폴더 위치 : _authors )  
+### author 저장 시 Naming Rule ( md파일 저장 폴더 위치 : `_authors` )  
 해당 파일을 저장 하실 때 파일 명은 반드시 (name에 적으셨던 이름).md 파일로 저장 해 주세요  **중요 ! 파일명(name에 적으셨던 이름)에 영어가 들어갈경우 대소문자를 일치시켜주세요 !**
 ( ex_ 위의 예에선 IceBear.md )  
 
 ***
 
-## Category 추가하기 {#Category}
+## Category 추가하기
 
-`_category/machine learning.md` file  
 ```shell
 ---
 name: machine learning
-description: Machine Learning desc
 ---
 ```
 
 ### name
 카테고리의 명칭을 적는 항목입니다.
 
-### description
-카테고리에 대한 설명을 적는 항목입니다. ( 현재는 사용하지 않으니 안적으셔도 됩니다 )
-
-### Category 저장 시 Naming Rule ( 저장 폴더 위치 : _category )  
+### Category 저장 시 Naming Rule ( 저장 폴더 위치 : `_category` )  
 해당 파일을 저장 하실 때 파일 명은 반드시 (name에 적으셨던 이름).md 파일로 저장 해 주세요 **중요 ! 파일명에 영어가 들어갈경우 모두 소문자로 해주세요 !**
 ( ex_ 위의 예에선 machine learning.md )
 
 ***
 
-## Tag 추가하기 {#Category}
-
-`_tags/machine learning.md` file  
+## Tag 추가하기
 
 ```shell
 ---
 name: machine learning
-description: machine learning desc
 ---
 ```
 
 ### name
 카테고리의 명칭을 적는 항목입니다.
 
-### description
-카테고리에 대한 설명을 적는 항목입니다. ( 현재는 사용하지 않으니 안적으셔도 됩니다 )
-
-### Category 저장 시 Naming Rule ( 저장 폴더 위치 : _tags )  
+### Category 저장 시 Naming Rule ( 저장 폴더 위치 : `_tags` )  
 해당 파일을 저장 하실 때 파일 명은 반드시 (name에 적으셨던 이름).md 파일로 저장 해 주세요 **중요 ! 파일명에 영어가 들어갈경우엔 모두 소문자로 해주세요 !**
 ( ex_ 위의 예에선 machine learning.md )
