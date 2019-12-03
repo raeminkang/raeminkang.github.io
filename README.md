@@ -1,4 +1,4 @@
-### 설치 및 실행 (로컬)
+## 설치 및 실행 (로컬)
 
 [Jekyll]: https://jekyllrb.com
 
@@ -9,7 +9,7 @@
 5. bundle exec jekyll serve 
 6. open http://localhost:4001
 
-### 배포
+## 배포
 
 github repo ( repo link : https://github.com/quriously/quriously.github.io )에 push  
 
@@ -47,8 +47,6 @@ YAML이란, 데이터 정렬 양식 중에 하나입니다. 데이터에 데이�
 규칙이 없다면 파일을 제대로 불러오지 못하는 구조기 때문입니다.
 
 따라서 이번 글에서 **데이터를 입력 할 때의 규칙** / **작성 용도별로 필요한 데이터에 대한 규칙** / **파일을 저장하는 규칙** 총 세가지 규칙을 설명드리겠습니다.  
-
-***
 
 ## 공통  
 
@@ -89,7 +87,6 @@ author: raemin
 저장하실떄의 형식은 포스팅 될 날짜( yyyy-MM-dd 형식 )-제목.md 입니다. 띄어쓰기가 들어 갈 경우엔 "-"를 사용해주시면 됩니다.  
 ( ex_ yyyy-MM-dd-제목을-띄어쓰기할땐-이렇게요.md )
 
-***
 
 ## author을 추가 하기
 
@@ -117,8 +114,6 @@ assets/authors 폴더에 반드시 사용하실 이미지를 (name에 적으셨�
 **중요 ! 파일명(name에 적으셨던 이름)에 영어가 들어갈경우 대소문자를 일치시켜주세요 !**  
 ( ex_ 위의 예에선 IceBear.md )  
 
-***
-
 ## Category 추가하기
 
 ```shell
@@ -134,8 +129,6 @@ name: machine learning
 해당 파일을 저장 하실 때 파일 명은 반드시 (name에 적으셨던 이름).md 파일로 저장 해 주세요  
 **중요 ! 파일명에 영어가 들어갈경우 모두 소문자로 해주세요 !**  
 ( ex_ 위의 예에선 machine learning.md )
-
-***
 
 ## Tag 추가하기
 
