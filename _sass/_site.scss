@@ -59,8 +59,7 @@
     list-style-type: none;
     display: table-cell;
     a {
-      
-      font-size: 16px;
+      font-size: 12px;
       font-weight: normal;
       font-stretch: normal;
       font-style: normal;
@@ -73,8 +72,7 @@
       }
     }
     span {
-      
-      font-size: 16px;
+      font-size: 12px;
       font-weight: normal;
       font-stretch: normal;
       font-style: normal;
@@ -91,7 +89,11 @@
 
 .pagination-icon {
   margin-bottom: 1.7px;
-  vertical-align: baseline;
+  vertical-align: bottom;
+
+  @media #{$small} {
+    vertical-align: bottom;
+  }
 }
 
 .paginator-page-outline {
@@ -99,7 +101,13 @@
   height: 36px;
 	border-radius: 50%;
 	-webkit-border-radius: 50%;
-	-moz-border-radius: 50%;
+  -moz-border-radius: 50%;
+  
+  @media #{$large} {
+    &:hover {
+      background-color: rgba(96, 139, 228, 0.05);
+    }
+  }
 }
 
 .current-paginator-page-outline {
@@ -111,7 +119,7 @@
   background-color: rgba(126, 167, 253, 0.1);
 }
 .page-outline {
-  width: 10px;
+  transform: translateY(-2px);
   margin: 0 auto;
 }
 

@@ -12,9 +12,11 @@
       {% if paginator.previous_page == 1 %}
         <li class="paginator-page-outline">
           <div class="page-outline">
+            <div class="paginator-page-inline">
               <a href="{{ site.url }}/" class="pagination-btn">
                 <img class="pagination-icon" src="{{ site.url }}/{{ site.resource_dir }}/ic-backword-arrow.svg" alt="">
               </a>
+            </div>
           </div>
         </li>
       {% else %}
@@ -22,17 +24,21 @@
         {% if distance_prev > 5 %}
           <li class="paginator-page-outline">
             <div class="page-outline">
+              <div class="paginator-page-inline">
                 <a href="{{ site.url }}/page{{ paginator.page | minus: 5 }}/" class="pagination-btn">
                   <img class="pagination-icon" src="{{ site.url }}/{{ site.resource_dir }}/ic-backword-arrow.svg" alt="">
                 </a>
+              </div>
             </div>
           </li>
         {% else %}
           <li class="paginator-page-outline">
               <div class="page-outline">
+                <div class="paginator-page-inline">
                   <a href="{{ site.url }}/" class="btn">
                     <img class="pagination-icon" src="{{ site.url }}/{{ site.resource_dir }}/ic-backword-arrow.svg" alt="">
                   </a>
+                </div>
               </div>
           </li>
         {% endif %}
@@ -46,7 +52,7 @@
         {% if page_num == paginator.page %}
           <li class="current-paginator-page-outline"> 
             <div class="page-outline current-page">
-              <div style="text-align: center;">
+              <div class="paginator-page-inline">
                   <span>
                       {{ page_num }}
                   </span>
@@ -57,7 +63,7 @@
           {% if page_num == 1 %}
             <li class="paginator-page-outline">
                 <div class="page-outline">
-                  <div>
+                  <div class="paginator-page-inline">
                       <a href="{{ site.url }}/">
                         {{ page_num }}
                       </a>
@@ -67,9 +73,11 @@
           {% else %}
             <li class="paginator-page-outline">
                 <div class="page-outline">
-                    <a href="{{ site.url }}/page{{ page_num }}">
-                      {{ page_num }}
-                    </a>
+                  <div class="paginator-page-inline">
+                      <a href="{{ site.url }}/page{{ page_num }}">
+                        {{ page_num }}
+                      </a>
+                  </div>
                 </div>
             </li>
           {% endif %}
@@ -85,15 +93,17 @@
       {% if distance_next  > 5 %}
         <li class="paginator-page-outline">
             <div class="page-outline">
+              <div class="paginator-page-inline">
                 <a href="{{ site.url }}/page{{ paginator.page | plus: 5 }}/" class="pagination-btn">
                   <img class="pagination-icon" src="{{ site.url }}/{{ site.resource_dir }}/ic-foreword-arrow.svg" alt="">
                 </a>
+              </div>
             </div>
         </li>
       {% else %}
         <li class="paginator-page-outline">
           <div class="page-outline">
-            <div>
+            <div class="paginator-page-inline">
                 <a href="{{ site.url }}/page{{ paginator.total_pages }}/" class="pagination-btn">
                   <img class="pagination-icon" src="{{ site.url }}/{{ site.resource_dir }}/ic-foreword-arrow.svg" alt="">
                 </a>

@@ -77,7 +77,7 @@
         <div class="header-title-wrap-author-inline">
           <div class="header-author-detail">
             <div>
-              <img class="header-author-img" src="{{ site.url }}/assets/images/authors/{{ author.profileImage }}" alt="{{author.name}}" />
+              <img class="header-author-img" src="/assets/images/authors/{{ author.profileImage }}" alt="{{author.name}}" />
             </div>
             <div class="header-author-detail-inline" >
               <span class="header-author-name">{{author.name}}</span>
@@ -141,16 +141,5 @@
 {% endif %}
 
 <script type="text/javascript">
-  var recruit_button = document.getElementById("recruit-button");
-  var recruit_button_arrow = document.getElementById("recruit-button-arrow");
-  if (recruit_button != null) {
-    recruit_button.onmouseleave = function() {
-      recruit_button_arrow.style.transform = "translateX(0px)";
-      recruit_button.style.opacity = "1";
-    }
-    recruit_button.onmouseenter = function() {
-      recruit_button_arrow.style.transform = "translateX(4px)";
-      recruit_button.style.opacity = "0.9";
-    }
-  }
+  
 </script>
