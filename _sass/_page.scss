@@ -255,7 +255,9 @@ body {
 		}
 
 		.count {
-			background-color: lighten($base-color,40);
+      background: border-box;
+      color: #7ea7fd;
+      font-size: 10px;
 			@include border-radius(3px,3px,0,0);
     }
     @media #{$large} {
