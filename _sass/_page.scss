@@ -475,7 +475,7 @@ header .entry-meta {
   margin-left: 12px;
 
   @media #{$small} {
-    width: 8px;
+    width: 10px;
     margin-left: 6px;
   }
 }
@@ -497,7 +497,7 @@ header .entry-meta {
   color: #ffffff;
 
   @media #{$small} {
-    font-size: 7px;
+    font-size: 10px;
   }
 }
 .header-title-wrap-ul {
@@ -1623,7 +1623,7 @@ ul.social-buttons li a:hover {
 		line-height: 1.2;
     @media #{$small} {
       padding-top: 0px;
-      font-size: 8px;
+      font-size: 10px;
     }
 		@media #{$large} {
 			padding-left: 4px;
