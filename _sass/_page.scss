@@ -439,7 +439,10 @@ header .entry-meta {
 	margin: 0 auto;
   display: table;
   @media #{$small} {
-    transform: translateY(-1.5px);
+    -ms-transform: translateY(-1.5px);
+    -moz-transform: translateY(-1.5px);
+    -o-transform: translateY(-1.5px);
+    -webkit-transform:  translateY(-1.5px);
   }
 }
 
