@@ -243,7 +243,7 @@ body {
     height: 20px;
 
     @media #{$small} {
-      height: 20px;
+      height: 18px;
     }
 
 		span {
@@ -251,7 +251,8 @@ body {
       padding: 3px 6px;
       
       @media #{$small} {
-        padding: auto 6px;
+        padding: 2px 0px;
+        transform: scale(0.833);
       }
 		}
 
