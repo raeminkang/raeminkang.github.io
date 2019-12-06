@@ -242,7 +242,7 @@ body {
     height: 20px;
 
     @media #{$small} {
-      height: 16px;
+      height: 20px;
     }
 
 		span {
@@ -250,7 +250,7 @@ body {
       padding: 3px 6px;
       
       @media #{$small} {
-        padding: 1.5px 0px;
+        padding: auto 6px;
       }
 		}
 
@@ -768,7 +768,6 @@ ul.social-buttons li a:hover {
 }
 
 .tag-text {
-	
 	font-size: 10px !important;
 	font-weight: normal;
 	font-stretch: normal;
@@ -778,9 +777,8 @@ ul.social-buttons li a:hover {
 	text-align: left;
 	color: #7ea7fd;
   text-transform: lowercase;
-  
   @media #{$small} {
-    transform: scale(0.833);
+
   }
 }
 

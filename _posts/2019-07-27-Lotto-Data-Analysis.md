@@ -5,7 +5,7 @@ last_modified_at: 2019-07-27 T20:35:00-05:00
 categories:
   - machine learning
 tags:
-  - machine learning
+  - [machine learning,asdf]
 
 image: Lotto-Data-Analysis/bartsimpson.jpg
 author: homerSimpson
