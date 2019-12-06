@@ -251,7 +251,7 @@ body {
       padding: 3px 6px;
       
       @media #{$small} {
-        padding: 1px 5px;
+        padding: 0px 5px;
         font-size: 9px !important;
         line-height: 15px;
       }
