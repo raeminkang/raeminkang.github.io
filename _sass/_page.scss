@@ -437,12 +437,9 @@ header .entry-meta {
 }
 .recruit-button-inline {
 	margin: 0 auto;
-  display: table;
+  display: -webkit-inline-box;
   @media #{$small} {
-    -ms-transform: translateY(-1.5px);
-    -moz-transform: translateY(-1.5px);
-    -o-transform: translateY(-1.5px);
-    -webkit-transform:  translateY(-1.5px);
+
   }
 }
 
