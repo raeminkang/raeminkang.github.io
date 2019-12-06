@@ -1796,16 +1796,21 @@ ul.social-buttons li a:hover {
   color: #222222 !important;
 }
 
+.category-text {
+  vertical-align: top;
+  font-size: 12px;
+}
+
 .sub-item {
 	position: relative;
 	padding-left: 10px;
 	width: 100%;
-	height: 50px;
+  height: 50px;
 	text-decoration: none;
 }
 
 .sub-item a {
-	font-size: 13px;
+	font-size: 16px;
 	color: #666666;
 	vertical-align: middle;
 	display: table-cell;
