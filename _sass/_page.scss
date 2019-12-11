@@ -792,6 +792,10 @@ ul.social-buttons li a:hover {
 .list-author-index {
   margin-top: 22px;
 
+  @media #{$small} {
+    margin-top: 16px;
+  }
+
 	@media #{$response_border_min} {
 		flex-direction: column;
 		justify-content: center;
