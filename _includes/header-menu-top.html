@@ -19,12 +19,8 @@
 
 <div
     {% if page.layout !='home' %}
-      id="header-menu-top"
-      {% if page.layout == 'category' or page.layout == 'tag' %}
-        class="header-menu header-menu-overflow archive-layout" 
-      {% else %}
-        class="header-menu header-menu-overflow" 
-      {% endif %}
+      id="header-menu-top" 
+      class="header-menu header-menu-overflow archive-layout"
     {% else %} 
       id="header-menu-top-home" class="header-menu header-menu-top" 
     {% endif %}>
@@ -116,7 +112,8 @@
         {% endif %}
         {% if menu.type == 'categories' %}
         <li class="header-item category">
-            <a onclick="return false" href="{{site.url}}{{menu.url}}" class="navi-category">{{ menu.title }}</a>
+            <a onclick="return false" href="{{site.url}}{{menu.url}}" class="navi-category" id="navi-category-text">{{ menu.title }}</a>
+            <img src="/assets/images/resource/ic-gnb-category-tail.png" alt="" class="category-tail">
             <ul class="header-submenu" id="header-submenu">
                 <div class="header-submenu-bg">
                     {% for item in (0..cats_list.size) %}{% unless forloop.last %} {% capture this_word %}{{ cats_list[item] | strip_newlines }}{% endcapture %}{% assign downcase_word = this_word | downcase %}

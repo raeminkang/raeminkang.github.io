@@ -139,7 +139,7 @@ body {
   font-size: 14px;
   color: #444444;
   @media #{$small} {
-    margin-top: 15px;
+    margin-top: 12px;
     font-size: 12px;
   }
 	li > a,
@@ -215,7 +215,7 @@ body {
   margin-bottom: 0;
   
   @media #{$small} {
-    margin-top: 14px;
+    margin-top: 10px;
   }
 }
 .entry-date {
@@ -252,7 +252,7 @@ body {
       
       @media #{$small} {
         padding: 0px 5px;
-        font-size: 9px !important;
+        font-size: 8px !important;
         line-height: 15px;
       }
 		}
@@ -303,6 +303,7 @@ header .entry-meta {
     margin: 66px auto 30px;
     @include rounded(3px);
     @media #{$small} {
+      box-shadow:none;
       padding: 60px 16px 25px;
       margin: 8px 0 20px;
     }
@@ -337,7 +338,7 @@ header .entry-meta {
 
 	.entry-meta {
     @media #{$small} {
-      margin: 20px 0 0;  
+      margin: 24px 0 0;  
     }
 		margin: 48px 0 0;
 	}
@@ -345,7 +346,11 @@ header .entry-meta {
 
 .entry-tags {
 	display: block;
-	margin-bottom: 6px;
+  margin-bottom: 6px;
+  
+  @media #{$small} {
+    margin: 0px;
+  }
 }
 
 .tag-heading,
@@ -555,7 +560,6 @@ header .entry-meta {
 
 .navi-category {
 	opacity: 0.8;
-	
 	font-size: 10px;
 	text-transform: uppercase;
 	font-weight: normal;
@@ -564,7 +568,7 @@ header .entry-meta {
 	line-height: 1.2;
 	letter-spacing: normal;
 	text-align: right;
-	color: #ffffff;
+  color: #ffffff;
 }
 
 .author-img {
@@ -787,9 +791,6 @@ ul.social-buttons li a:hover {
 
 .list-author-index {
   margin-top: 22px;
-  @media #{$small} {
-    margin-top: 9px;
-  }
 
 	@media #{$response_border_min} {
 		flex-direction: column;
@@ -807,9 +808,16 @@ ul.social-buttons li a:hover {
 		height: 90px;
 	}
 }
+
 .archive-layout {
   box-shadow: none !important;
 }
+
+.img-pagination {
+  margin-bottom: 2px;
+  height: 7px;
+}
+
 .author-nickname-index {
 	margin-left: 6px;
 	font-size: 12px;
@@ -976,7 +984,6 @@ ul.social-buttons li a:hover {
 	}
 }
 .prev {
-	
 	font-size: 12px;
 	font-weight: normal;
 	font-stretch: normal;
@@ -984,14 +991,12 @@ ul.social-buttons li a:hover {
 	line-height: 1.67;
 	letter-spacing: -0.24px;
 	text-align: left;
-  color: #7ea7fd;
-
+  color: #7ea7fd !important;
   @media #{$small} {
     font-size: 10px;
   }
 }
 .next {
-	
   font-size: 12px;
   font-weight: normal;
   font-stretch: normal;
@@ -999,8 +1004,7 @@ ul.social-buttons li a:hover {
   line-height: 1.67;
   letter-spacing: -0.24px;
   text-align: left;
-  color: #7ea7fd;
-
+  color: #7ea7fd !important;
   @media #{$small} {
     font-size: 10px;
   }
@@ -1363,6 +1367,10 @@ ul.social-buttons li a:hover {
     background-color: transparent !important; 
   }
 }
+.header-input::placeholder {
+  color: #ffffff;
+  opacity: 0.6;
+}
 
 .header-input-overflow {
 	width: 180px;
@@ -1551,13 +1559,36 @@ ul.social-buttons li a:hover {
 	width: 8px;
 	height: 8px;
 	object-fit: contain;
-	opacity: 0.8;
   margin-bottom: 2px;
   cursor: pointer;
 }
 
+.post-pagination-text {
+  width:290px;
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  display:inline-block;
+}
+
 .category {
 	margin-right: 10px;
+}
+.category-tail {
+  @media #{$small} {
+    display: none;
+  }
+  display: none;
+  width: 6px;
+  height: 5px;
+  margin-left: 30px;
+  vertical-align: bottom;
+  position: absolute;
+  top: 50px;
+}
+.header-item:hover .category-tail {
+	display: block;
+	position: absolute;
 }
 
 .header-toggle {
@@ -1779,7 +1810,8 @@ ul.social-buttons li a:hover {
   padding: 0px !important;
 	display: none;
 	border-top: 3px solid $category-top-color;
-	width: 200px;
+  width: 200px;
+  top: 55px;
 	z-index: 100;
 	list-style-type: none;
   transform: translateX(-50%);

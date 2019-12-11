@@ -50,14 +50,14 @@
     <div class="PageNavigation">
       {% if page.previous.url %}
         <a class="prev pull-left post-paginator-text" href="{{ site.url }}{{ page.previous.url }}" id="prev">
-          <img src="/assets/images/resource/ic-backword-arrow.svg" alt="" style="margin-right: 6px;" id="img-prev">
+          <img src="/assets/images/resource/ic-backword-arrow.svg" alt="" style="margin-right: 6px;" id="img-prev" class="img-pagination">
           <span id="post-prev-text">{{ page.previous.title }}</span>
         </a>
       {% endif %}
       {% if page.next.url %}
         <a class="next pull-right post-paginator-text" href="{{ site.url }}{{ page.next.url }}" id="next">
           <span id="post-next-text">{{ page.next.title }}</span>
-          <img src="/assets/images/resource/ic-foreword-arrow.svg" alt="" style="margin-left: 6px;" id="img-next">
+          <img src="/assets/images/resource/ic-foreword-arrow.svg" alt="" style="margin-left: 6px;" id="img-next" class="img-pagination">
         </a>
       {% endif %}
     </div>
