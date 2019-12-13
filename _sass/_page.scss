@@ -243,7 +243,7 @@ body {
     height: 20px;
 
     @media #{$small} {
-      height: 18px;
+      height: 19px;
     }
 
 		span {
@@ -253,7 +253,7 @@ body {
       @media #{$small} {
         font-size: 9px !important;
         float: initial;
-        line-height: 17.5px;
+        line-height: 18px;
       }
 		}
 
