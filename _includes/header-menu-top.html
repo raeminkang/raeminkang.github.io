@@ -119,12 +119,12 @@
                     {% for item in (0..cats_list.size) %}{% unless forloop.last %} {% capture this_word %}{{ cats_list[item] | strip_newlines }}{% endcapture %}{% assign downcase_word = this_word | downcase %}
                     {% if page.layout == 'category' %}
                       {% if page.name == downcase_word %}
-                        <li class="sub-item"><a class="current-category" href="{{site.url}}/category/{{downcase_word}}"><span class="category-text">{{this_word}}</span></a></li>
+                        <li class="sub-item" onclick="location.href='{{site.url}}/category/{{downcase_word}}'" style="cursor: pointer;"><a class="current-category" href="{{site.url}}/category/{{downcase_word}}"><span class="category-text">{{this_word}}</span></a></li>
                       {% else %}
-                        <li class="sub-item"><a href="{{site.url}}/category/{{downcase_word}}"><span class="category-text">{{this_word}}</span></a></li>
+                        <li class="sub-item" onclick="location.href='{{site.url}}/category/{{downcase_word}}'" style="cursor: pointer;"><a href="{{site.url}}/category/{{downcase_word}}"><span class="category-text">{{this_word}}</span></a></li>
                       {% endif %}
                     {% else %}
-                      <li class="sub-item"><a href="{{site.url}}/category/{{downcase_word}}"><span class="category-text">{{this_word}}</span></a></li>
+                      <li class="sub-item" onclick="location.href='{{site.url}}/category/{{downcase_word}}'" style="cursor: pointer;"><a href="{{site.url}}/category/{{downcase_word}}"><span class="category-text">{{this_word}}</span></a></li>
                     {% endif %}
                     {% endunless %}{% endfor %}
                 </div>
