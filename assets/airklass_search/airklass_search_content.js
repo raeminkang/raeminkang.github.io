@@ -89,14 +89,14 @@ var airklasssearch = {"pages": [
         <div class="entry-meta">
           <span class="entry-date date published updated">
             <time datetime="{{ document.date | date_to_xmlschema }}">
-              <a href="{{ document.url }}">{{ document.date | date: "%Y.%m.%d" }}</a>
+              <a href="{{ document.url }}" class="article-date">{{ document.date | date: "%Y.%m.%d" }}</a>
             </time>
           </span>
         </div>
         {% if document.link %}
           <h1 class="entry-title"><a href="{{ document.url }}" class="permalink" rel="bookmark" title="{{ document.title }} "><i class="fa fa-bookmark"></i></a> <a href="{{ document.link }}">{{ document.title }} </a></h1>
         {% else %}
-          <h1 class="entry-title"><a href="{{ document.url }}" rel="bookmark" title="{{ document.title }} " itemprop="url">{{ document.title }} </a></h1>
+          <h1 class="entry-title"><a href="{{ document.url }}" class="article-title" rel="bookmark" title="{{ document.title }} " itemprop="url">{{ document.title }} </a></h1>
         {% endif %}
       </header>
       <div class="article entry-content">

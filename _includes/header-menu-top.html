@@ -19,8 +19,12 @@
 
 <div
     {% if page.layout !='home' %}
-      id="header-menu-top" 
       class="header-menu header-menu-overflow archive-layout"
+      {% if page.layout == 'post'%}
+        id="header-menu-top-post"
+      {% else %}
+        id="header-menu-top"
+      {% endif %}
     {% else %} 
       id="header-menu-top-home" class="header-menu header-menu-top" 
     {% endif %}>
