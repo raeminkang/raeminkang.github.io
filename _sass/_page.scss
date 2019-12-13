@@ -58,7 +58,9 @@ body {
 .paginator-page-inline {
   text-align: center;
 }
-
+.post-tag {
+  vertical-align: bottom;
+}
 .hentry {
   @include clearfix;
   word-wrap: break-word;
@@ -515,6 +517,9 @@ header .entry-meta {
   padding-left: 30px;
 
   @media #{$small} {
+    position: absolute;
+    z-index: 50;
+    top: 0px;
     padding: $phone_padding_main;
   }
 
@@ -1174,6 +1179,7 @@ ul.social-buttons li a:hover {
   content: url("/assets/images/resource/img-main-recruit-off-m.png");
 
   @media #{$small} {
+    z-index: 0;
     bottom: 0px;
     width: 240px;
     height: 210px;
@@ -1245,7 +1251,8 @@ ul.social-buttons li a:hover {
     display: table-cell;
     vertical-align: middle;
 		margin: 0 auto;
-		text-align: center;
+    text-align: center;
+    position: relative;
 	}
 
 	h2 {
@@ -1293,7 +1300,7 @@ ul.social-buttons li a:hover {
   @media #{$small} {
     height: $phone_header_menu_height;
   }
-	z-index: 20;
+	z-index: 70;
 
 	ul {
 		margin: 0 auto;
