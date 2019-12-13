@@ -4,11 +4,9 @@
     {% if tag_num < 5 %}
       {% assign downcase_tag = tag | downcase %}
       <a href="{{ site.url }}/tags/{{ downcase_tag }}" title="Pages tagged {{ downcase_tag }}" class="tag">
-        <div class="">
-          <span class="tag-text">
-            {{ tag }}
-          </span>
-        </div>
+        <span class="tag-text">
+          {{ tag }}
+        </span>
       </a>
       {% assign tag_num = tag_num | plus:1 %}
     {% endif %}

@@ -243,7 +243,7 @@ body {
     height: 20px;
 
     @media #{$small} {
-      height: 15px;
+      height: 18px;
     }
 
 		span {
@@ -251,9 +251,9 @@ body {
       padding: 3px 6px;
       
       @media #{$small} {
-        padding: 0px 5px;
-        font-size: 8px !important;
-        line-height: 15px;
+        font-size: 9px !important;
+        float: initial;
+        line-height: 17px;
       }
 		}
 
@@ -784,9 +784,6 @@ ul.social-buttons li a:hover {
 	text-align: left;
 	color: #7ea7fd;
   text-transform: lowercase;
-  @media #{$small} {
-
-  }
 }
 
 .list-author-index {
