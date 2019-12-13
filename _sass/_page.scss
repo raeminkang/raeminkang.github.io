@@ -822,7 +822,11 @@ ul.social-buttons li a:hover {
 
 .img-pagination {
   margin-bottom: 2px;
-  height: 7px;
+  width: 5px;
+  height: 9px;
+  @media #{$small} {
+    height: 7px;
+  }
 }
 
 .author-nickname-index {
